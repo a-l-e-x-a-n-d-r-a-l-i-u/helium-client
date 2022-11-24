@@ -1,11 +1,11 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      <Switch>
+      <Routes>
         <Route path="/" exact={true} render={() => { return (HomePage) }} />
         {/* <Route path="/tag" component={TagPage} /> */}
         {/* <Route exact path="/compose/:templateKey" component={MessageComposerPage} />
@@ -13,7 +13,7 @@ const AppRouter = () => {
         <Route path="/signin" render={() => <SignIn />} />
         */}
         {/* <Route render={() => <HomePage notif="redirect" />} /> */}
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 };
