@@ -45,7 +45,7 @@ const getPosts = async () => {
             // console.log('metadata object: ', obj)
             return obj
           }
-          // because there is no metadataIndices for blank markdown files, need to return empty object
+          // because metadataIndices.length is 0 for the blank markdown files, need to return empty object
           return {}
         }
 
@@ -68,7 +68,7 @@ const getPosts = async () => {
         post = {
           id: i + 1,
           title: metadata.title ? metadata.title : "New template",
-          author: metadata.author ? metadata.title : "Unknown author",
+          author: metadata.author ? metadata.author : "Unknown author",
           date: metadata.date ? metadata.date : "Unknown date",
           content: content ? content : "No content available"
         }

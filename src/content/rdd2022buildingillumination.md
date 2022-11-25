@@ -1,7 +1,7 @@
 ---
 title: Rare Disease Day 2022 Building Illumination
 author: Rare Disease UK
-date: March 2, 2022
+date: 
 ---
 I would like to politely request the illumination of your building on 28 February 2022 for Rare Disease Day to recognise the challenges faced by people with a rare condition and stand in solidarity. Please can this email be passed on to the relevant team?
  

@@ -1,7 +1,7 @@
 ---
 title: Support Solar for All
 author: Solar Garden
-date: March 2, 2022
+date: 
 ---
 Dear Energy Minister, 
 
