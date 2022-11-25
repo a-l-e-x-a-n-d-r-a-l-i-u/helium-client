@@ -1,4 +1,9 @@
 /* mobile first */
+a {
+  color: #f25e21;
+  text-decoration: none;
+}
+
 nav {
   position: fixed;
   display: block;
@@ -10,16 +15,47 @@ nav {
 
 .header {
   top: 0;
-  box-shadow: 0px 5px 10px #eeeeee;
+  box-shadow: 0 5px 10px #eeeeee;
 }
 
 .footer {
   bottom: 0;
-  box-shadow: 0px -5px 10px #eeeeee;
+  box-shadow: 0 -5px 10px #eeeeee;
+}
+
+#layout-container {
+  margin: 4em 0 0 0;
 }
 
 #feed-nav {
+  position: sticky;
+  top: 0px;
   display: flex;
+  border-bottom: 1px solid #eeeeee;
+}
+
+#feed-nav a {
+  color: gray;
+}
+
+#feed-nav a:hover {
+  color: black;
+}
+
+#feed-nav a:hover .symbol {
+  background-color: #eeeeee;
+  border-radius: 50px;
+}
+
+#feed-nav .tab {
+  margin: 0 .5em;
+  padding: .5em 1em;
+  font-size: .9em;
+}
+
+#feed-nav .selected-tab {
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 .App {

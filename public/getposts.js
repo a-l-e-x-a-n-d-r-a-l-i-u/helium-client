@@ -1,3 +1,6 @@
+//USE TYPESCRIPT FOR BACKEND
+
+
 //file system library
 const fs = require("fs")
 const path = require("path")
@@ -28,6 +31,7 @@ const getPosts = async () => {
         }
 
         parseMetadata = ({ lines, metadataIndices }) => {
+          //no matter what happens in a function, always remember to have areturn function. if you use 'if' have a backup return in case the if condition isn't met
           // if we have a metadata indices array with elements in it, we want to sliece the lines array between the two indices with the --- in it
           if (metadataIndices.length > 0) {
             // but ignoring the first line that's just --- and we want to start at title
@@ -41,6 +45,8 @@ const getPosts = async () => {
             // console.log('metadata object: ', obj)
             return obj
           }
+          // because there is no metadataIndices for blank markdown files, need to return empty object
+          return {}
         }
 
         parseContent = ({ lines, metadataIndices }) => {
@@ -61,10 +67,10 @@ const getPosts = async () => {
         // then add the post to the postlist array
         post = {
           id: i + 1,
-          title: metadata.title ? metadata.title : "Unknown title",
+          title: metadata.title ? metadata.title : "New template",
           author: metadata.author ? metadata.title : "Unknown author",
           date: metadata.date ? metadata.date : "Unknown date",
-          content: content ? content : "Unknown content"
+          content: content ? content : "No content available"
         }
         postlist.push(post)
 
