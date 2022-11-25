@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const Footer = () => {
   return (
-    <nav>
+    <nav className='footer'>
       Footer text goes here
     </nav>
   )

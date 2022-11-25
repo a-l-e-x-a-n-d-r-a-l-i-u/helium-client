@@ -1,11 +1,11 @@
 import Layout from "./Layout";
-import PostList from './PostList';
+import Feed from './Feed';
 
 const HomePage = () => {
   return (
     <>
       <Layout>
-        <PostList />
+        <Feed />
       </Layout>
     </>
   )
