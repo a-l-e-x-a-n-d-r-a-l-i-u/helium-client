@@ -10,7 +10,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="layout">
-      {/* <Header /> */}
+      <Header />
       <div id="layout-container">{children}</div>
       <Footer />
     </div>
