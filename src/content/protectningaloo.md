@@ -1,7 +1,7 @@
 ---
 title: Stop industrialisation of Exmouth Gulf
 author: Protect Ningaloo
-date: March 2, 2022
+date: 
 ---
 As you know, the Environmental Protection Authority (EPA) has just released a major report that warns of the increasing pressure on Exmouth Gulf’s environment and calls for the protection of its unique and globally significant values.
 

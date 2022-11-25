@@ -1,4 +1,12 @@
 /* mobile first */
+h1 {
+  font-family: serif;
+}
+
+h2 {
+  font-family: sans-serif;
+}
+
 a {
   color: #f25e21;
   text-decoration: none;
@@ -24,13 +32,17 @@ nav {
 }
 
 #layout-container {
-  margin: 4em 0 0 0;
+  margin: 3em 0 0 0;
+  padding: 1em;
+  background-color: #fbfbfb;
 }
 
 #feed-nav {
   position: sticky;
-  top: 0px;
+  top: 50px;
+  /* top position should be programmatically calculated to equal header height, because what if the header height changes in the future? */
   display: flex;
+  background-color: #fbfbfb;
   border-bottom: 1px solid #eeeeee;
 }
 

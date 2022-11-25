@@ -7,6 +7,7 @@ const PostList: React.FC = () => {
       {postlist.map((post, i) => {
         return (
           <div className="postlist card">
+            {/* make the cards pretty bc it's very ugly right now */}
             <h2>
               {post.id}. {post.title}
             </h2>

@@ -1,7 +1,7 @@
 ---
 title: Protect Dingoes
 author: Dingo Protection
-date: March 2, 2022
+date: 
 ---
 Federal, state and territory governments are failing to protect dingoes.  
 
