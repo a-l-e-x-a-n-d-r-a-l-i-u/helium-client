@@ -1,4 +1,7 @@
-export default () =>
-(<section>
-  <a href="/#browse">Browse all templates</a>
-</section>);
+const TagList = () => (
+  <div className="tags">
+    <a href="/#browse">Browse all templates</a>
+  </div>
+);
+
+export default TagList;

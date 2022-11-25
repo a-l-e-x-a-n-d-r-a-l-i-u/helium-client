@@ -1,10 +1,13 @@
-/* mobile first */
+/* design for the smallest screens first!!!!!!!!!!!!!! */
+/* add in some breakpoints later */
+
 h1 {
   font-family: serif;
 }
 
 h2 {
   font-family: sans-serif;
+  font-size: 1.2em;
 }
 
 a {
@@ -32,7 +35,7 @@ nav {
 }
 
 #layout-container {
-  margin: 3em 0 0 0;
+  margin: 3em 0em;
   padding: 1em;
   background-color: #fbfbfb;
 }
@@ -61,13 +64,38 @@ nav {
 
 #feed-nav .tab {
   margin: 0 .5em;
-  padding: .5em 1em;
+  padding: 1em;
   font-size: .9em;
 }
 
 #feed-nav .selected-tab {
   color: black;
   border-bottom: 1px solid black;
+}
+
+img.profile-icon {
+  width: 24px;
+  border-radius: 50%;
+  display: inline;
+}
+
+div.post-metadata {
+  text-align: left;
+}
+
+div.author-date {
+  margin: 0 0 0 8px;
+  height: 100%;
+  font-weight: 400;
+  font-size: .92em;
+  display: inline;
+}
+
+/* how do i center this text vertically? */
+div.author-date * {
+  padding: auto 0;
+  align-items: center;
+  vertical-align: middle;
 }
 
 .App {

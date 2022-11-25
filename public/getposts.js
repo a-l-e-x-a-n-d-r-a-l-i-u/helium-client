@@ -1,4 +1,5 @@
 //USE TYPESCRIPT FOR BACKEND
+//also why does postlist.push is reading the files in content folder in alphabetical order, but in posts.json, it's random af
 
 
 //file system library
@@ -31,7 +32,6 @@ const getPosts = async () => {
         }
 
         parseMetadata = ({ lines, metadataIndices }) => {
-          //no matter what happens in a function, always remember to have areturn function. if you use 'if' have a backup return in case the if condition isn't met
           // if we have a metadata indices array with elements in it, we want to sliece the lines array between the two indices with the --- in it
           if (metadataIndices.length > 0) {
             // but ignoring the first line that's just --- and we want to start at title
@@ -47,6 +47,7 @@ const getPosts = async () => {
           }
           // because metadataIndices.length is 0 for the blank markdown files, need to return empty object
           return {}
+          //rule of thumb: in a function, always remember to have a return function. if you use 'if' have a backup return in case the if condition isn't met
         }
 
         parseContent = ({ lines, metadataIndices }) => {

@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
     <nav className='footer'>
-      Footer text goes here
+      Nav icons: home, search, saved and user profile
     </nav>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
