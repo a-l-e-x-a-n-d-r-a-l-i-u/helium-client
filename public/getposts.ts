@@ -1,5 +1,4 @@
-//USE TYPESCRIPT FOR BACKEND
-//also why does postlist.push is reading the files in content folder in alphabetical order, but in posts.json, it's random af
+//why does postlist.push read files in alphabetical order, but in posts.json, order is random af
 
 
 //file system library
@@ -8,6 +7,14 @@ const path = require("path")
 
 const dirPath = path.join(__dirname, "../src/content")
 let postlist = []
+
+// interface PostToPush {
+//   id: number;
+//   title?: string;
+//   author?: string;
+//   date?: string;
+//   content?: string[]
+// }
 
 const getPosts = async () => {
   await fs.readdir(dirPath, (err, files) => {
@@ -20,7 +27,7 @@ const getPosts = async () => {
       let post
       fs.readFile(`${dirPath}/${file}`, "utf8", (err, contents) => {
         console.log('There are', files.length, 'files in the content folder')
-        getMetadataIndices = (accumulator, element, i) => {
+        let getMetadataIndices = (accumulator: number[], element, i) => {
           // We want to find --- and test to see if it's there or not. So we pass the element of the array into test method
           if (/^---/.test(element)) {
             // and if --- is there we record the index in the array
@@ -31,7 +38,7 @@ const getPosts = async () => {
           return accumulator
         }
 
-        parseMetadata = ({ lines, metadataIndices }) => {
+        let parseMetadata = ({ lines, metadataIndices }) => {
           // if we have a metadata indices array with elements in it, we want to sliece the lines array between the two indices with the --- in it
           if (metadataIndices.length > 0) {
             // but ignoring the first line that's just --- and we want to start at title
@@ -50,7 +57,7 @@ const getPosts = async () => {
           //rule of thumb: in a function, always remember to have a return function. if you use 'if' have a backup return in case the if condition isn't met
         }
 
-        parseContent = ({ lines, metadataIndices }) => {
+        let parseContent = ({ lines, metadataIndices }) => {
           if (metadataIndices.length > 0) {
             //everything after the second --- lime
             lines = lines.slice(metadataIndices[1] + 1, lines.length)
@@ -68,10 +75,10 @@ const getPosts = async () => {
         // then add the post to the postlist array
         post = {
           id: i + 1,
-          title: metadata.title ? metadata.title : "New template",
-          author: metadata.author ? metadata.author : "Unknown author",
-          date: metadata.date ? metadata.date : "Unknown date",
-          content: content ? content : "No content available"
+          title: metadata.title ? metadata.title : "",
+          author: metadata.author ? metadata.author : "",
+          date: metadata.date ? metadata.date : "",
+          content: content ? content : ""
         }
         postlist.push(post)
 
