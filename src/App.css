@@ -18,9 +18,13 @@ nav {
   position: fixed;
   width: 100%;
   overflow: hidden;
-  justify-content: space-between;
+  display: flex;
   padding: 1em 32px;
   background-color: white;
+}
+
+nav ul {
+  justify-content: space-around;
 }
 
 nav.top-nav {
@@ -33,7 +37,7 @@ nav.bottom-nav {
   box-shadow: 0 -5px 10px #eeeeee;
 }
 
-.nav-icon {
+.nav-option {
   display: inline;
 }
 

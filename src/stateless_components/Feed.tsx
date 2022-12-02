@@ -13,7 +13,11 @@ const PostList: React.FC = () => {
             {/* could use next.js for responsive images, if can be bothered learning something new */}
             {/* should use a compressed version of images for a profile icon as well, otherwise it will take forever to load on a speedtest */}
             <div className='card-header'>
-              <img className='profile-thumbnail' src={profilePlaceholder} />
+              <img
+                className='profile-thumbnail'
+                src={profilePlaceholder}
+                alt={post.author}
+              />
               {/* actually the src should be more like {process.env.PUBLIC_URL + image} except you haven't set up process.env yet */}
               {/* include post.org if it's written by a person or by an org. but also tweak getposts.js to hide if one or the other doesn't exist, we don't need a billion cards with 'Unknown author in Save the Children', just say 'Save the Children' */}
               <div className='author-date-container'>
@@ -28,7 +32,11 @@ const PostList: React.FC = () => {
                 <p className='blurb'>{post.content}</p>
                 {/* figure out how to shorten post.content into max 3lines of text */}
               </div>
-              <img className='blurb-thumbnail' src={postPlaceholder} />
+              <img
+                className='blurb-thumbnail'
+                src={postPlaceholder}
+                alt={post.title}
+              />
             </div>
             <div className='card-footer'>
               <div className='tag'>{post.tag}</div>

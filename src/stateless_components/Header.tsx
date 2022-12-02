@@ -1,14 +1,14 @@
 import React from "react";
+import { placeholderLogo } from "../../public/logo192.png";
 
 const Header = () => {
   return (
     <nav className='top-nav'>
-      <div>Logo on left</div>
-      <div>
-        Use for-loop to loop through nav items?
-        <li>CTA button</li>
-        <li>notifs to right</li>
-      </div>
+      <img src={placeholderLogo} alt='placeholder logo' />
+      <ul className='nav-list'>
+        <li className='nav-option'>CTA button</li>
+        <li className='nav-option'>notifs to right</li>
+      </ul>
     </nav>
   );
 };
