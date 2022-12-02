@@ -23,11 +23,17 @@ const PostList: React.FC = () => {
               </div>
             </div>
             <div className='post-summary'>
-              <img className='post-thumbnail' src={postPlaceholder} />
-              <h2>
-                {post.id}. {post.title}
-              </h2>
-              <p className='post-blurb'>{post.content}</p>
+              <div className='blurb-container'>
+                <h2>{post.title}</h2>
+                <p className='blurb'>{post.content}</p>
+                {/* figure out how to shorten post.content into max 3lines of text */}
+              </div>
+              <img className='blurb-thumbnail' src={postPlaceholder} />
+            </div>
+            <div className='card-footer'>
+              <div className='tag'>{post.tag}</div>
+              <div>Based on your reading history/selected for you</div>
+              <div>Icons for Add / Minus / Ellipsis to report</div>
             </div>
           </article>
         );

@@ -16,10 +16,10 @@ a {
 
 nav {
   position: fixed;
-  display: block;
   width: 100%;
   overflow: hidden;
-  padding: 1em;
+  justify-content: space-between;
+  padding: 1em 32px;
   background-color: white;
 }
 
@@ -33,9 +33,13 @@ nav.bottom-nav {
   box-shadow: 0 -5px 10px #eeeeee;
 }
 
+.nav-icon {
+  display: inline;
+}
+
 #layout-container {
   margin: 3em 0em;
-  padding: 1em;
+  padding: 32px;
   background-color: #fbfbfb;
 }
 
@@ -73,7 +77,7 @@ nav.bottom-nav {
 }
 
 article {
-  margin: 32px;
+  margin: 36px 0;
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -84,17 +88,14 @@ div.card-header {
 
 img.profile-thumbnail {
   width: 24px;
+  height: 24px;
+  object-fit: cover;
   border-radius: 50%;
   display: inline;
 }
 
-img.post-thumbnail {
-  width: 80px;
-  float: inline-end;
-}
-
-div.post-metadata {
-  text-align: left;
+div.post-summary {
+  display: flex;
 }
 
 div.author-date-container {
@@ -105,7 +106,21 @@ div.author-date-container {
   display: inline;
 }
 
-p.post-blurb {
+div.blurb-container {
+  width: calc(100% - 100px);
+  display: inline-block;
+  flex: 1 1 auto;
+}
+
+img.blurb-thumbnail {
+  width: 80px;
+  height: 56px;
+  object-fit: cover;
+  margin: 0 0 0 20px;
+  display: block;
+}
+
+p.blurb {
   display: none
 }
 
@@ -138,8 +153,13 @@ p.post-blurb {
   h2 {
     font-size: 1.2em;
   }
+
+  img.blurb-thumbnail {
+    width: 112px;
+    height: 112px;
+  }  
   
-  p.post-blurb {
+  p.blurb {
     display: block
   }  
 }
