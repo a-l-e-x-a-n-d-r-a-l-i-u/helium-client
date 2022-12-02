@@ -1,5 +1,4 @@
 /* design for the smallest screens first!!!!!!!!!!!!!! */
-/* add in some breakpoints later */
 
 h1 {
   font-family: serif;
@@ -7,7 +6,7 @@ h1 {
 
 h2 {
   font-family: sans-serif;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 a {
@@ -24,12 +23,12 @@ nav {
   background-color: white;
 }
 
-.header {
+nav.top-nav {
   top: 0;
   box-shadow: 0 5px 10px #eeeeee;
 }
 
-.footer {
+nav.bottom-nav {
   bottom: 0;
   box-shadow: 0 -5px 10px #eeeeee;
 }
@@ -73,17 +72,32 @@ nav {
   border-bottom: 1px solid black;
 }
 
-img.profile-icon {
+article {
+  margin: 32px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+div.card-header {
+  display: flex;
+  align-items: center;
+}
+
+img.profile-thumbnail {
   width: 24px;
   border-radius: 50%;
   display: inline;
+}
+
+img.post-thumbnail {
+  width: 80px;
+  float: inline-end;
 }
 
 div.post-metadata {
   text-align: left;
 }
 
-div.author-date {
+div.author-date-container {
   margin: 0 0 0 8px;
   height: 100%;
   font-weight: 400;
@@ -91,15 +105,12 @@ div.author-date {
   display: inline;
 }
 
-/* how do i center this text vertically? */
-div.author-date * {
-  padding: auto 0;
-  align-items: center;
-  vertical-align: middle;
+p.post-blurb {
+  display: none
 }
 
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -107,25 +118,11 @@ div.author-date * {
   pointer-events: none;
 }
 
+/* figure out how to use CSS animations to make a skeleton loader */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -136,3 +133,17 @@ div.author-date * {
     transform: rotate(360deg);
   }
 }
+
+@media only screen and (min-width: 600px) {
+  h2 {
+    font-size: 1.2em;
+  }
+  
+  p.post-blurb {
+    display: block
+  }  
+}
+
+
+
+

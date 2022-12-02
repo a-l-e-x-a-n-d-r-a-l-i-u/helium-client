@@ -1,6 +1,5 @@
 //why does postlist.push read files in alphabetical order, but in posts.json, order is random af
 
-
 //file system library
 const fs = require("fs")
 const path = require("path")
@@ -8,13 +7,22 @@ const path = require("path")
 const dirPath = path.join(__dirname, "../src/content")
 let postlist = []
 
-// interface PostToPush {
-//   id: number;
-//   title?: string;
-//   author?: string;
-//   date?: string;
-//   content?: string[]
-// }
+interface Post {
+  id: number;
+  title: string;
+  author: string;
+  date?: string;
+  tag?: string;
+  content?: string[]
+}
+
+interface MetadataObject {
+  id: number;
+  title: string;
+  author: string;
+  date?: string;
+  tag?: string
+}
 
 const getPosts = async () => {
   await fs.readdir(dirPath, (err, files) => {
@@ -23,8 +31,8 @@ const getPosts = async () => {
     }
 
     files.forEach((file, i) => {
-      let obj = {}
-      let post
+      let obj<MetadataObject> = {}
+      let post<Post>
       fs.readFile(`${dirPath}/${file}`, "utf8", (err, contents) => {
         console.log('There are', files.length, 'files in the content folder')
         let getMetadataIndices = (accumulator: number[], element, i) => {
@@ -43,13 +51,11 @@ const getPosts = async () => {
           if (metadataIndices.length > 0) {
             // but ignoring the first line that's just --- and we want to start at title
             let metadata = lines.slice(metadataIndices[0] + 1, metadataIndices[1])
-            // testing with console log
             // console.log("metadata: " + metadata)
             metadata.forEach(line => {
               obj[line.split(": ")[0]] = line.split(": ")[1]
             })
-            // testing with console log
-            // console.log('metadata object: ', obj)
+            console.log('metadata object: ', obj)
             return obj
           }
           // because metadataIndices.length is 0 for the blank markdown files, need to return empty object
@@ -72,12 +78,14 @@ const getPosts = async () => {
         // console.log("metadataIndices: " + metadataIndices)
         const metadata = parseMetadata({ lines, metadataIndices })
         const content = parseContent({ lines, metadataIndices })
+
         // then add the post to the postlist array
         post = {
           id: i + 1,
           title: metadata.title ? metadata.title : "",
           author: metadata.author ? metadata.author : "",
           date: metadata.date ? metadata.date : "",
+          tag: metadata.tag ? metadata.tag : "",
           content: content ? content : ""
         }
         postlist.push(post)
