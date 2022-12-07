@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = () => {
+const BottomNav = () => {
   return (
     <nav className='bottom-nav'>
       <ul className='nav-list'>
@@ -13,4 +13,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default BottomNav;

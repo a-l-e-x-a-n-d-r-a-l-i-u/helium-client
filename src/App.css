@@ -14,34 +14,51 @@ a {
   text-decoration: none;
 }
 
+div.large-screen-layout {
+  display: flex;
+  flex-direction: column;
+}
+
 nav {
   position: fixed;
   width: 100%;
-  overflow: hidden;
-  display: flex;
-  padding: 1em 32px;
   background-color: white;
+  display: flex;
 }
 
-nav ul {
-  justify-content: space-around;
+nav img {
+  height: 24px;
 }
+
+nav.side-nav {
+  height: 100%;
+  width: 80px
+}  
 
 nav.top-nav {
   top: 0;
   box-shadow: 0 5px 10px #eeeeee;
+  padding: 0 32px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nav.bottom-nav {
   bottom: 0;
   box-shadow: 0 -5px 10px #eeeeee;
+  justify-content: space-evenly;
+}
+
+nav ul {
+  padding: 0;
+  display: flex;
 }
 
 .nav-option {
   display: inline;
 }
 
-#layout-container {
+#main-content {
   margin: 3em 0em;
   padding: 32px;
   background-color: #fbfbfb;
@@ -132,11 +149,6 @@ p.blurb {
   text-align: left;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 /* figure out how to use CSS animations to make a skeleton loader */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -153,7 +165,7 @@ p.blurb {
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 728px) {
   h2 {
     font-size: 1.2em;
   }
@@ -168,6 +180,56 @@ p.blurb {
   }  
 }
 
+@media only screen and (min-width: 600px) {
+  h2 {
+    font-size: 1.2em;
+  }
 
+  img.blurb-thumbnail {
+    width: 112px;
+    height: 112px;
+  }  
+  
+  p.blurb {
+    display: block
+  }
+  
+  #feed-nav {
+    width: 670px;
+  }
 
+  #postlist {
+    width: 670px;
+  }
+}
 
+@media only screen and (min-width: 1080px) {
+  nav.side-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  nav.top-nav {
+    display: none
+  }
+
+  nav.bottom-nav {
+    display: none;
+  }
+
+  div.small-screen-layout {
+    width: auto;
+  }  
+
+  #feed-nav {
+    width: 100%;
+    top: 0px;
+  }
+}
