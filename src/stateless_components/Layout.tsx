@@ -10,9 +10,9 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className='large-screen-layout'>
+    <div className='horizontal-layout'>
       <SideNav />
-      <div className='small-screen-layout'>
+      <div className='vertical-layout'>
         <TopNav />
         <div id='main-content'>{children}</div>
         <BottomNav />
