@@ -32,10 +32,14 @@ const PostList: React.FC = () => {
                 <p className='blurb'>{post.content}</p>
                 {/* figure out how to shorten post.content into max 3lines of text */}
               </div>
-              <img className='post-thumbnail' src={postPlaceholder} alt={post.title} />
+              <img className='post-thumbnail xs-only' src={postPlaceholder} alt={post.title} />
             </div>
             <div className='card-footer'>
-              <div className='tag'>{capitalizeFirstLetter(post.tag)}</div>
+              <a href='/'>
+                {" "}
+                {/* <div>Based on your reading history/Selected for you</div> */}
+                <div className='tag'>{capitalizeFirstLetter(post.tag)}</div>
+              </a>
               {/* <div>Based on your reading history/Selected for you</div> */}
               <div>Icons for Add / Minus</div>
             </div>

@@ -151,8 +151,6 @@ article {
   div.post-summary {
     display: flex;
     div.blurb-container {
-      width: calc(100% - 100px);
-      display: inline-block;
       flex: 1 1 auto;
       p.blurb {
         display: none
@@ -171,13 +169,14 @@ article {
     justify-content: space-between;
   }
   * .tag {
-    padding: 2px 8px;
-    transition: background 300ms ease 0s;
-    border-radius: 100px;
+    color: $black;
+    font-weight: 400;
     font-size: 13px;
     line-height: 20px;
     background-color: $cloud-grey;
-    font-weight: 400;
+    padding: 2px 8px;
+    border-radius: 100px;
+    transition: background 300ms ease 0s;
   }
 }
 
