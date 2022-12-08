@@ -127,7 +127,7 @@ div#main-content {
 }
 
 article {
-  margin: 36px 0;
+  padding: 36px 0;
   border-bottom: 1px solid $secondary-background;
   div.card-header {
     display: flex;
@@ -165,6 +165,19 @@ article {
       margin: 0 0 0 20px;
       display: block;
     }
+  }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  * .tag {
+    padding: 2px 8px;
+    transition: background 300ms ease 0s;
+    border-radius: 100px;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: $cloud-grey;
+    font-weight: 400;
   }
 }
 
@@ -205,7 +218,6 @@ article {
     }
   }
  
-
   #feed-nav {
     width: 670px;
   }
