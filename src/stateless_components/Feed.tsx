@@ -46,8 +46,8 @@ const PostList: React.FC = () => {
                 </a>
                 {/* <div>Based on your reading history/Selected for you</div> */}
                 <div>Icons for Add / Minus</div>
-                <div className='thumbnail-width'></div>
               </div>
+              <div className='thumbnail-width'></div>
             </div>
           </article>
         );

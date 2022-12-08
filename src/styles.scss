@@ -212,6 +212,11 @@ article {
     font-size: 1.2em;
   }
 
+  div.vertical-layout {
+    display: inline;
+    width: 100%;
+  }
+
   article {
     div.card-body {
       img.post-thumbnail {
@@ -220,7 +225,7 @@ article {
       }
       div.blurb-container {
         p.blurb {
-          display: inline;
+          display: block;
         }
       }
     }
@@ -239,12 +244,7 @@ article {
   }
 }
 
-@media only screen and (min-width: 756px) {
-  div.vertical-layout {
-    display: inline;
-    width: 100%;
-  }
-  
+@media only screen and (min-width: 756px) {  
   div#main-content {
     width: 692px;
     margin: 0 auto;
