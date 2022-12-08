@@ -22,6 +22,7 @@ $secondary-font:      $serif;
 
 // Spacing
 $vertical-layout-nav-height: 51px;
+$thumbnail-width-desktop: 112px;
 
 // Design for the smallest screens first!!!
 .App {
@@ -129,26 +130,35 @@ div#main-content {
 article {
   padding: 36px 0;
   border-bottom: 1px solid $secondary-background;
-  div.card-header {
+  div.wrapper {
     display: flex;
-    align-items: center;
-    img.profile-thumbnail {
-      width: 24px;
-      height: 24px;
-      object-fit: cover;
-      border-radius: 50%;
-      display: inline;
-    } 
-    div.author-date-container {
-      margin: 0 0 0 8px;
-      height: 100%;
-      font-weight: 400;
-      font-size: .92em;
-      display: inline;
-    }   
+    justify-content: space-between;
+    div.card-header {
+      display: flex;
+      align-items: center;
+      img.profile-thumbnail {
+        width: 24px;
+        height: 24px;
+        object-fit: cover;
+        border-radius: 50%;
+        display: inline;
+      } 
+      div.author-date-container {
+        margin: 0 0 0 8px;
+        height: 100%;
+        font-weight: 400;
+        font-size: .92em;
+        display: inline;
+      }   
+    }
+
+    div.card-footer {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
-  div.post-summary {
+  div.card-body {
     display: flex;
     div.blurb-container {
       flex: 1 1 auto;
@@ -164,10 +174,6 @@ article {
       display: block;
     }
   }
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-  }
   * .tag {
     color: $black;
     font-weight: 400;
@@ -177,6 +183,9 @@ article {
     padding: 2px 8px;
     border-radius: 100px;
     transition: background 300ms ease 0s;
+  }
+  * .thumbnail-width {
+    display: none;
   }
 }
 
@@ -204,16 +213,20 @@ article {
   }
 
   article {
-    div.post-summary {
+    div.card-body {
       img.post-thumbnail {
-        width: 112px;
-        height: 112px;
+        width: $thumbnail-width-desktop;
+        height: $thumbnail-width-desktop;
       }
       div.blurb-container {
         p.blurb {
-          display: block
+          display: inline;
         }
       }
+    }
+    * .thumbnail-width {
+        width: $thumbnail-width-desktop;
+        display: inline-block;
     }
   }
  
