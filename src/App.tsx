@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import AppRouter from "./stateless_components/AppRouter";
-import './App.css';
+import "./styles.scss";
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <AppRouter />
     </div>
   );

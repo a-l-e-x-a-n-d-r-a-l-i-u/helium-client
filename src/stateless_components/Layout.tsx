@@ -1,6 +1,7 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import TopNav from "./navigation/TopNav";
+import BottomNav from "./navigation/BottomNav";
+import SideNav from "./navigation/SideNav";
 
 interface LayoutProps {
   // problem with JSX.Element is that it only allows for 1 child
@@ -9,10 +10,13 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="layout">
-      <Header />
-      <div id="layout-container">{children}</div>
-      <Footer />
+    <div className='horizontal-layout'>
+      <SideNav />
+      <div className='vertical-layout'>
+        <TopNav />
+        <div id='main-content'>{children}</div>
+        <BottomNav />
+      </div>
     </div>
   );
 };

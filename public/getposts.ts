@@ -1,5 +1,4 @@
-//USE TYPESCRIPT FOR BACKEND
-
+//why does postlist.push read files in alphabetical order, but in posts.json, order is random af
 
 //file system library
 const fs = require("fs")
@@ -8,6 +7,23 @@ const path = require("path")
 const dirPath = path.join(__dirname, "../src/content")
 let postlist = []
 
+interface Post {
+  id: number;
+  title: string;
+  author: string;
+  date?: string;
+  tag?: string;
+  content?: string[]
+}
+
+interface MetadataObject {
+  id: number;
+  title: string;
+  author: string;
+  date?: string;
+  tag?: string
+}
+
 const getPosts = async () => {
   await fs.readdir(dirPath, (err, files) => {
     if (err) {
@@ -15,11 +31,11 @@ const getPosts = async () => {
     }
 
     files.forEach((file, i) => {
-      let obj = {}
-      let post
+      let obj<MetadataObject> = {}
+      let post<Post>
       fs.readFile(`${dirPath}/${file}`, "utf8", (err, contents) => {
         console.log('There are', files.length, 'files in the content folder')
-        getMetadataIndices = (accumulator, element, i) => {
+        let getMetadataIndices = (accumulator: number[], element, i) => {
           // We want to find --- and test to see if it's there or not. So we pass the element of the array into test method
           if (/^---/.test(element)) {
             // and if --- is there we record the index in the array
@@ -30,26 +46,24 @@ const getPosts = async () => {
           return accumulator
         }
 
-        parseMetadata = ({ lines, metadataIndices }) => {
-          //no matter what happens in a function, always remember to have areturn function. if you use 'if' have a backup return in case the if condition isn't met
+        let parseMetadata = ({ lines, metadataIndices }) => {
           // if we have a metadata indices array with elements in it, we want to sliece the lines array between the two indices with the --- in it
           if (metadataIndices.length > 0) {
             // but ignoring the first line that's just --- and we want to start at title
             let metadata = lines.slice(metadataIndices[0] + 1, metadataIndices[1])
-            // testing with console log
             // console.log("metadata: " + metadata)
             metadata.forEach(line => {
               obj[line.split(": ")[0]] = line.split(": ")[1]
             })
-            // testing with console log
-            // console.log('metadata object: ', obj)
+            console.log('metadata object: ', obj)
             return obj
           }
           // because metadataIndices.length is 0 for the blank markdown files, need to return empty object
           return {}
+          //rule of thumb: in a function, always remember to have a return function. if you use 'if' have a backup return in case the if condition isn't met
         }
 
-        parseContent = ({ lines, metadataIndices }) => {
+        let parseContent = ({ lines, metadataIndices }) => {
           if (metadataIndices.length > 0) {
             //everything after the second --- lime
             lines = lines.slice(metadataIndices[1] + 1, lines.length)
@@ -64,13 +78,15 @@ const getPosts = async () => {
         // console.log("metadataIndices: " + metadataIndices)
         const metadata = parseMetadata({ lines, metadataIndices })
         const content = parseContent({ lines, metadataIndices })
+
         // then add the post to the postlist array
         post = {
           id: i + 1,
-          title: metadata.title ? metadata.title : "New template",
-          author: metadata.author ? metadata.author : "Unknown author",
-          date: metadata.date ? metadata.date : "Unknown date",
-          content: content ? content : "No content available"
+          title: metadata.title ? metadata.title : "",
+          author: metadata.author ? metadata.author : "",
+          date: metadata.date ? metadata.date : "",
+          tag: metadata.tag ? metadata.tag : "",
+          content: content ? content : ""
         }
         postlist.push(post)
 

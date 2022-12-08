@@ -1,0 +1,278 @@
+// Colours
+$orange: #f25e21;
+$white: #ffffff;
+$black: #000000;
+$cloud-grey: #eeeeee;
+$charcoal-grey: #111111;
+$grey: #808080;
+
+$primary-color: $orange;
+$secondary-color: $black;
+
+$primary-background: $white;
+$secondary-background: $cloud-grey;
+
+// Fonts
+$serif:               "Lora", "Playfair Display", Georgia, "Times New Roman", Times, serif;
+$sans-serif:          "Segoe UI", "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
+$monospace:           "Inconsolata", monospace;
+
+$primary-font:        $sans-serif;
+$secondary-font:      $serif;
+
+// Spacing
+$vertical-layout-nav-height: 51px;
+$thumbnail-width-desktop: 112px;
+
+// Design for the smallest screens first!!!
+.App {
+  text-align: left;
+}
+
+h1 {
+  font-family: $secondary-font;
+}
+
+h2 {
+  font-family: $primary-font;
+  font-size: 1em;
+}
+
+p {
+  font-family: $secondary-font;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+div.horizontal-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  background-color: $primary-background;
+  display: flex;
+  &.side-nav {
+    height: 100%;
+    width: 80px;
+    border-right: 1px solid $secondary-background;
+    display: none;
+  }
+  &.top-nav {
+    top: 0;
+    box-shadow: 0 5px 10px $secondary-background;
+    padding: 0 32px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &.bottom-nav {
+    bottom: 0;
+    box-shadow: 0 -5px 10px $secondary-background;
+    justify-content: space-evenly;
+  }
+  &.side-bar {
+    height: 100%;
+    width: 280px;
+    padding: 40px 32px;
+    display: none;
+  }  
+  img {
+    height: 24px;
+  }
+  ul {
+    padding: 0;
+    display: flex;
+  }
+}
+
+.nav-option {
+  display: inline;
+}
+
+div#main-content {
+  margin: 3em 0em;
+  padding: 32px;
+}
+
+#feed-nav {
+  position: sticky;
+  top: $vertical-layout-nav-height;
+  display: flex;
+  background-color: $primary-background;
+  border-bottom: 1px solid $secondary-background;
+  a {
+    color: $grey;
+    &:hover {
+      color: $secondary-color;
+      .symbol {
+        background-color: $secondary-background;
+        border-radius: 50px;
+      }
+    }
+  }
+}
+
+#feed-nav .tab {
+  margin: 0 .5em;
+  padding: 1em;
+  font-size: .9em;
+  &.selected {
+    color: $secondary-color;
+    border-bottom: 1px solid $secondary-color;
+  }
+}
+
+article {
+  padding: 36px 0;
+  border-bottom: 1px solid $secondary-background;
+  div.wrapper {
+    display: flex;
+    justify-content: space-between;
+    div.card-header {
+      display: flex;
+      align-items: center;
+      img.profile-thumbnail {
+        width: 24px;
+        height: 24px;
+        object-fit: cover;
+        border-radius: 50%;
+        display: inline;
+      } 
+      div.author-date-container {
+        margin: 0 0 0 8px;
+        height: 100%;
+        font-weight: 400;
+        font-size: .92em;
+        display: inline;
+      }   
+    }
+
+    div.card-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  div.card-body {
+    display: flex;
+    div.blurb-container {
+      flex: 1 1 auto;
+      p.blurb {
+        display: none
+      }      
+    }
+    img.post-thumbnail {
+      width: 80px;
+      height: 56px;
+      object-fit: cover;
+      margin: 0 0 0 20px;
+      display: block;
+    }
+  }
+  * .tag {
+    color: $black;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: $cloud-grey;
+    padding: 2px 8px;
+    border-radius: 100px;
+    transition: background 300ms ease 0s;
+  }
+  * .thumbnail-width {
+    display: none;
+  }
+}
+
+/* figure out how to use CSS animations to make a skeleton loader !!!!! */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Now onto bigger viewports
+
+@media only screen and (min-width: 728px) {
+  h2 {
+    font-size: 1.2em;
+  }
+
+  div.vertical-layout {
+    display: inline;
+    width: 100%;
+  }
+
+  article {
+    div.card-body {
+      img.post-thumbnail {
+        width: $thumbnail-width-desktop;
+        height: $thumbnail-width-desktop;
+      }
+      div.blurb-container {
+        p.blurb {
+          display: block;
+        }
+      }
+    }
+    * .thumbnail-width {
+        width: $thumbnail-width-desktop;
+        display: inline-block;
+    }
+  }
+ 
+  #feed-nav {
+    width: 670px;
+  }
+
+  #postlist {
+    width: 670px;
+  }
+}
+
+@media only screen and (min-width: 756px) {  
+  div#main-content {
+    width: 692px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  nav {
+    &.side-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &.top-nav {
+      display: none
+    }
+    &.bottom-nav {
+      display: none;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }
+
+  #feed-nav {
+    width: 100%;
+    top: 0px;
+  }
+}
