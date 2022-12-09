@@ -1,3 +1,19 @@
+/* Note to self
+Use mixins to animate CSS keyframes and make a skeleton loader!!!
+Frank would love that shit
+
+https://marksheet.io/sass-mixins.html
+
+*/
+
+//Mixins for browser compatibility
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
 // Colours
 $orange: #f25e21;
 $white: #ffffff;
@@ -111,7 +127,7 @@ div#main-content {
       color: $secondary-color;
       .symbol {
         background-color: $secondary-background;
-        border-radius: 50px;
+        @include border-radius(50%);
       }
     }
   }
@@ -136,11 +152,12 @@ article {
     div.card-header {
       display: flex;
       align-items: center;
+      height: 100%;
       img.profile-thumbnail {
         width: 24px;
         height: 24px;
         object-fit: cover;
-        border-radius: 50%;
+        @include border-radius(50%);
         display: inline;
       } 
       div.author-date-container {
@@ -181,27 +198,11 @@ article {
     line-height: 20px;
     background-color: $cloud-grey;
     padding: 2px 8px;
-    border-radius: 100px;
+    @include border-radius(100px);
     transition: background 300ms ease 0s;
   }
   * .thumbnail-width {
     display: none;
-  }
-}
-
-/* figure out how to use CSS animations to make a skeleton loader !!!!! */
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
 
