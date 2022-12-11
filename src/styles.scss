@@ -4,15 +4,10 @@ Frank would love that shit
 
 https://marksheet.io/sass-mixins.html
 
-*/
+Also, you can use @extend to reuse CSS selectors
+https://marksheet.io/sass-extend.html
 
-//Mixins for browser compatibility
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
+*/
 
 // Colours
 $orange: #f25e21;
@@ -39,6 +34,14 @@ $secondary-font:      $serif;
 // Spacing
 $vertical-layout-nav-height: 51px;
 $thumbnail-width-desktop: 112px;
+
+// Browser compatibility
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
 
 // Design for the smallest screens first!!!
 .App {
