@@ -102,8 +102,9 @@ nav {
   }  
   img {
     height: 24px;
+    padding: 30px 0px;
   }
-  ul {
+  .nav-list {
     padding: 0;
     display: flex;
   }
@@ -268,7 +269,7 @@ article {
     &.bottom-nav {
       display: none;
     }
-    ul {
+    .nav-list {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
