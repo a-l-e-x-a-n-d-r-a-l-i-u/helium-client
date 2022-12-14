@@ -1,13 +1,5 @@
-import Layout from "./Layout"
-
 const PostPage = () => {
-  return (
-    <>
-      <Layout>
-        Template content goes here
-      </Layout>
-    </>
-  )
-}
+  return <>Pooooost</>;
+};
 
-export default PostPage
+export default PostPage;

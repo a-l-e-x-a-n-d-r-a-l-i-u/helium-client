@@ -1,14 +1,11 @@
-import Layout from "./Layout";
-import Feed from './Feed';
+import Feed from "./Feed";
 
 const HomePage = () => {
   return (
     <>
-      <Layout>
-        <Feed />
-      </Layout>
+      <Feed />
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

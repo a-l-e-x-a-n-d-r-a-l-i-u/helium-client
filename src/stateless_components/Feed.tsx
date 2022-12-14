@@ -2,6 +2,7 @@ import React from "react";
 import postlist from "../posts.json";
 import profilePlaceholder from "../images/thispersondoesnotexist.jpeg";
 import postPlaceholder from "../images/post-thumbnail-placeholder.jpg";
+import { Link } from "react-router-dom";
 
 function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
@@ -31,7 +32,10 @@ const PostList: React.FC = () => {
 
             <div className='card-body'>
               <div className='blurb-container'>
-                <h2>{post.title}</h2>
+                <Link to='/post/:slug'>
+                  <h2>{post.title}</h2>
+                </Link>
+                {/* style link text black */}
                 <p className='blurb'>{post.content}</p>
                 {/* figure out how to shorten post.content into max 3lines of text */}
               </div>
@@ -40,10 +44,10 @@ const PostList: React.FC = () => {
 
             <div className='wrapper'>
               <div className='card-footer'>
-                <a href='/'>
+                <Link to='/tag/:tagMame'>
                   {/* Dynamically generate tag links */}
                   <div className='tag'>{capitalizeFirstLetter(post.tag)}</div>
-                </a>
+                </Link>
                 {/* <div>Based on your reading history/Selected for you</div> */}
                 <div>Icons for Add / Minus</div>
               </div>
