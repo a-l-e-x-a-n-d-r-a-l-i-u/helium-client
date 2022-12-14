@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import placeholderReactLogo from "../../images/logo192.png";
 
+import placeholderReactLogo from "../../images/logo192.png";
 import home_link from "../../images/home_link.svg";
 import home_active from "../../images/home_active.svg";
 import lists_link from "../../images/lists_link.svg";
 import lists_active from "../../images/lists_active.svg";
 import search_link from "../../images/search_link.svg";
 import search_active from "../../images/search_active.svg";
+import placeholderProfile from "../../images/placeholder-profile.svg";
 
 const SideNav = () => {
   return (
@@ -31,7 +32,8 @@ const SideNav = () => {
           <img src={lists_link} alt='Write' />
         </Link>
       </div>
-      <img className='profile-thumbnail' src={placeholderReactLogo} alt='placeholder thumbnail' />
+
+      <img id='profile-thumbnail' src={placeholderProfile} alt='No profile picture uploaded' />
     </nav>
   );
 };

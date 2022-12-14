@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import placeholderReactLogo from "../../images/logo192.png";
-import lists_link from "../../images/lists_link.svg";
+import notification_link from "../../images/notification_link.svg";
 
 const TopNav = () => {
   return (
@@ -10,9 +10,13 @@ const TopNav = () => {
       <img className='nav-logo' src={placeholderReactLogo} alt='placeholder logo' />
 
       <div className='nav-list'>
-        <Link to='/login'>CTA Button</Link>
+        <Link to='/login'>
+          <div className='button primary-button'>Register</div>
+        </Link>
         <Link to='/me/notifications'>
-          <img src={lists_link} alt='Notifications' />
+          <div className='button secondary-button icon-button'>
+            <img src={notification_link} alt='Notifications' />
+          </div>
         </Link>
       </div>
     </nav>

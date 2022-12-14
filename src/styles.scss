@@ -32,7 +32,7 @@ $primary-font:        $sans-serif;
 $secondary-font:      $serif;
 
 // Spacing
-$vertical-layout-nav-height: 51px;
+$vertical-layout-nav-height: 54px;
 $thumbnail-width-desktop: 112px;
 
 // Browser compatibility
@@ -91,29 +91,44 @@ nav {
   }
   &.top-nav {
     top: 0;
+    height: $vertical-layout-nav-height;
     box-shadow: 0 5px 10px $secondary-background;
-    padding: 0 32px;
     align-items: center;
     justify-content: space-between;
+    z-index: 499;
+    img {
+      height: 24px;
+    }
+    .nav-list {
+      align-items: center;
+      padding: 0 10px;
+    }
   }
   &.bottom-nav {
     bottom: 0;
+    height: $vertical-layout-nav-height;
     box-shadow: 0 -5px 10px $secondary-background;
     justify-content: space-evenly;
+    z-index: 498;
+    .nav-list {
+      width: 100%;
+      img {
+        height: 24px;
+        padding: 13px 15px;
+      }
+    }
   }
   &.side-bar {
     height: 100%;
     width: 280px;
     padding: 40px 32px;
     display: none;
+    z-index: 497;
   }  
-  img {
-    height: 24px;
-    padding: 13px 15px;
-  }
   .nav-list {
     padding: 0;
     display: flex;
+    justify-content: space-evenly;
     * {
       display: inline;
     }
@@ -131,6 +146,7 @@ div#main-content {
   display: flex;
   background-color: $primary-background;
   border-bottom: 1px solid $secondary-background;
+  z-index: 399;
   a {
     color: $grey;
     &:hover {
@@ -216,7 +232,31 @@ article {
   }
 }
 
-// Now onto bigger viewports
+div.button {
+  padding: 8px 16px;
+  margin: 0px 10px;
+  height: 35px; // this is just font size + padding
+  @include border-radius(100px);
+  &.primary-button {
+    border: 1px $primary-background solid;
+    background-color: $primary-color;
+    color: $primary-background;
+  }
+  &.secondary-button {
+    border: 1px $secondary-background solid;
+  }
+  &.icon-button {
+    width: 35px;
+    padding: 0px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    @include border-radius(50%);
+  }
+}
+
+
+// Now onto bigger viewports!
 
 @media only screen and (min-width: 728px) {
   h2 {
@@ -245,10 +285,6 @@ article {
     }
   }
  
-  #feed-nav {
-    width: 670px;
-  }
-
   #postlist {
     width: 670px;
   }
@@ -275,9 +311,7 @@ article {
       display: none;
     }
     .nav-list {
-      display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
     }
   }
 
