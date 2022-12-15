@@ -2,24 +2,36 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import PostPage from "./PostPage";
+import Feed from "./Feed";
+import ErrorPage from "./ErrorPage";
+
+import Layout from "./Layout";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/post" element={<PostPage />} />
-        {/* <Route path="/tag" component={TagPage} /> */}
-        {/* <Route exact path="/compose/:templateKey" component={MessageComposerPage} />
-        <Route exact path="/compose/new" component={WriteYourOwnPage} />
-        <Route path="/signin" render={() => <SignIn />} />
-        */}
-        {/* <Route render={() => <HomePage notif="redirect" />} /> */}
+      {/* When route path and url location match, a match object is created */}
+      {/* You can replace BrowserRouter with MemoryRouter for testing */}
+      <Layout>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          {/* Do I need to make sure this patch is exact? In react-router v5 I had to */}
+          <Route path='/post/:slug' element={<PostPage />} />
 
-            {/* tbh should use Link in navbar so that pages don't reload like an anchor in html */}
-    {/* when route path and url location match, a match object is created */}
+          {/* Update these components later */}
+          <Route path='/signin' element={<HomePage />} />
+          <Route path='/tag/:tagName' element={<Feed />} />
 
-      </Routes>
+          <Route path='/me' element={<HomePage />} />
+          <Route path='/me/notifications' element={<HomePage />} />
+          <Route path='/me/lists' element={<HomePage />} />
+          <Route path='/me/posts/drafts' element={<HomePage />} />
+
+          <Route path='/write' element={<HomePage />} />
+
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 };
