@@ -16,7 +16,11 @@ const SideNav = () => {
       <img className='nav-logo' src={placeholderReactLogo} alt='placeholder logo' />
       <div className='nav-list'>
         {/* tbh If you use Link instead of anchor in html, pages don't reload */}
-        <NavLink to='/'>
+        <NavLink
+          to='/'
+          style={({ isActive }) => {
+            return isActive ? { color: "red" } : {};
+          }}>
           <img src={home_link} alt='Home' />
         </NavLink>
         <NavLink to='/me/notifications'>
