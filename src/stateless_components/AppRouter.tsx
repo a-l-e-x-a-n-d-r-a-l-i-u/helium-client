@@ -40,7 +40,7 @@ const AppRouter = () => {
       <Layout>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/post' element={<PostPage />} />
+          {/* Do I need to make sure this patch is exact? In react-router v5 I had to */}
           <Route path='/post/:slug' element={<PostPage />} />
 
           {/* Update these components later */}
@@ -49,14 +49,10 @@ const AppRouter = () => {
 
           <Route path='/me' element={<HomePage />} />
           <Route path='/me/notifications' element={<HomePage />} />
-          <Route path='me/lists' element={<HomePage />} />
+          <Route path='/me/lists' element={<HomePage />} />
+          <Route path='/me/posts/drafts' element={<HomePage />} />
 
-          <Route path='/posts/drafts' element={<HomePage />} />
-
-          <Route path='/write' element={<HomePage />}>
-            <Route index element={<HomePage />} />
-            <Route path='/:slug' element={<HomePage />} />
-          </Route>
+          <Route path='/write' element={<HomePage />} />
 
           <Route path='*' element={<ErrorPage />} />
         </Routes>
