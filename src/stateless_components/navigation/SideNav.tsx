@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import placeholderReactLogo from "../../images/logo192.png";
 import home_link from "../../images/home_link.svg";
@@ -16,22 +16,22 @@ const SideNav = () => {
       <img className='nav-logo' src={placeholderReactLogo} alt='placeholder logo' />
       <div className='nav-list'>
         {/* tbh If you use Link instead of anchor in html, pages don't reload */}
-        <Link to='/'>
+        <NavLink to='/'>
           <img src={home_link} alt='Home' />
-        </Link>
-        <Link to='/me/notifications'>
+        </NavLink>
+        <NavLink to='/me/notifications'>
           <img src={lists_link} alt='Notifications' />
-        </Link>
-        <Link to='/me/lists'>
+        </NavLink>
+        <NavLink to='/me/lists'>
           <img src={lists_link} alt='Lists' />
-        </Link>
-        <Link to='/me/posts/drafts'>
+        </NavLink>
+        <NavLink to='/me/posts/drafts'>
           <img src={lists_link} alt='My Posts' />
-        </Link>
+        </NavLink>
         <br />
-        <Link to='/me/write'>
+        <NavLink to='/me/write'>
           <img src={lists_link} alt='Write' />
-        </Link>
+        </NavLink>
       </div>
 
       <img id='profile-thumbnail' src={placeholderProfile} alt='No profile picture uploaded' />
