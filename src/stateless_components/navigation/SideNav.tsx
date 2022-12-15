@@ -15,6 +15,7 @@ const SideNav = () => {
     <nav className='side-nav'>
       <img className='nav-logo' src={placeholderReactLogo} alt='placeholder logo' />
       <div className='nav-list'>
+        {/* tbh If you use Link instead of anchor in html, pages don't reload */}
         <Link to='/'>
           <img src={home_link} alt='Home' />
         </Link>

@@ -10,8 +10,8 @@ const TopNav = () => {
       <img className='nav-logo' src={placeholderReactLogo} alt='placeholder logo' />
 
       <div className='nav-list'>
-        <Link to='/login'>
-          <div className='button primary-button'>Register</div>
+        <Link to='/signin'>
+          <div className='button primary-button'>Sign In</div>
         </Link>
         <Link to='/me/notifications'>
           <div className='button secondary-button icon-button'>
