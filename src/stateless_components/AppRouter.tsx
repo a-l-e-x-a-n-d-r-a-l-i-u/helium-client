@@ -13,6 +13,8 @@ const AppRouter = () => {
       {/* When route path and url location match, a match object is created */}
       {/* You can replace BrowserRouter with MemoryRouter for testing */}
       <Layout>
+        {/* Layout applies to every page EXCEPT a landing page, if you decide to make one.
+        So keep Layout.tsx component separate for now */}
         <Routes>
           <Route path='/' element={<HomePage />} />
           {/* Do I need to make sure this patch is exact? In react-router v5 I had to */}

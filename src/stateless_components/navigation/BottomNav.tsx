@@ -18,14 +18,16 @@ const BottomNav = () => {
           }}
         </NavLink>
         <NavLink to='/search'>
-          <img src={search_link} alt='Search' />
+          {({ isActive }) => {
+            return isActive ? <img src={search_active} alt='Search' /> : <img src={search_link} alt='Search' />;
+          }}
         </NavLink>
         <NavLink to='/me/lists'>
           {({ isActive }) => {
             return isActive ? <img src={lists_active} alt='Lists' /> : <img src={lists_link} alt='Lists' />;
           }}
         </NavLink>
-        <NavLink to='/me/posts/drafts'>
+        <NavLink to='/me'>
           <img src={lists_link} alt='Profile' />
         </NavLink>
       </div>
