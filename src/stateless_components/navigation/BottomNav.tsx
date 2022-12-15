@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import home_link from "../../images/home_link.svg";
 import home_active from "../../images/home_active.svg";
@@ -12,18 +12,22 @@ const BottomNav = () => {
   return (
     <nav className='bottom-nav'>
       <div className='nav-list'>
-        <Link to='/'>
-          <img src={home_link} alt='Home' />
-        </Link>
-        <Link to='/search'>
+        <NavLink to='/'>
+          {({ isActive }) => {
+            return isActive ? <img src={home_active} alt='Home' /> : <img src={home_link} alt='Home' />;
+          }}
+        </NavLink>
+        <NavLink to='/search'>
           <img src={search_link} alt='Search' />
-        </Link>
-        <Link to='/me/lists'>
-          <img src={lists_link} alt='Lists' />
-        </Link>
-        <Link to='/me/posts/drafts'>
+        </NavLink>
+        <NavLink to='/me/lists'>
+          {({ isActive }) => {
+            return isActive ? <img src={lists_active} alt='Lists' /> : <img src={lists_link} alt='Lists' />;
+          }}
+        </NavLink>
+        <NavLink to='/me/posts/drafts'>
           <img src={lists_link} alt='Profile' />
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );
