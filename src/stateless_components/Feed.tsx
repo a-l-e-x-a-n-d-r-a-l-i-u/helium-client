@@ -2,7 +2,7 @@ import React from "react";
 import postlist from "../posts.json";
 import profilePlaceholder from "../images/thispersondoesnotexist.jpeg";
 import postPlaceholder from "../images/post-thumbnail-placeholder.jpg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
@@ -65,17 +65,19 @@ const FeedNav: React.FC = () => {
     // how to programmatically show the 'selected' state ???????? use for loop to loop thru list of tabs ????
 
     <div id='feed-nav'>
-      <a href='recommendations'>
+      <NavLink to='/recommendations'>
         <div className='tab symbol'>+</div>
-      </a>
+      </NavLink>
 
-      <a href='/'>
-        <div className='tab selected'>For you</div>
-      </a>
+      <NavLink to='/'>
+        {({ isActive }) => {
+          return isActive ? <div className='tab selected'>For you</div> : <div className='tab'>For you</div>;
+        }}
+      </NavLink>
 
-      <a href='/?feed=following&source=home'>
+      <NavLink to='/?feed=following&source=home'>
         <div className='tab'>Following</div>
-      </a>
+      </NavLink>
     </div>
   );
 };
