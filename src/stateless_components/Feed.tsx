@@ -34,7 +34,7 @@ const PostList: React.FC = () => {
                   <h2>{post.title}</h2>
                 </Link>
                 {/* style link text black */}
-                <p className='blurb'>{post.content.split(".")}</p>
+                <p className='blurb'>{post.content.split(".")[0]}...</p>
               </div>
               <img className='post-thumbnail xs-only' src={postPlaceholder} alt={post.title} />
             </div>

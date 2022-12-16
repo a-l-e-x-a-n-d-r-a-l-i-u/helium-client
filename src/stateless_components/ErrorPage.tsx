@@ -10,7 +10,7 @@ const ErrorPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate("/");
+      navigate("/", { state: "Error Page" });
     }, 5000);
   });
 
