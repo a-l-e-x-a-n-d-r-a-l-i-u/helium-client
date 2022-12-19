@@ -1,11 +1,15 @@
 import React, { createContext, useState } from "react";
 
 // UserContext: to query the context state
-const UserContext = createContext<string | null>({});
+const UserContext = createContext<UserContextValue>({});
 // UserDispatchContext: to mutate the context state
-const UserDispatchContext = createContext<string | null>({});
+// const UserDispatchContext = createContext<UserContextValue>({});
 
-function UserProvider({ children }) {
+interface UserContextValue {
+  username?: string;
+}
+
+function UserProvider({}) {
   const [userDetails, setUserDetails] = useState({
     username: "Jane Smith",
   });
@@ -13,4 +17,4 @@ function UserProvider({ children }) {
   return <UserContext.Provider value={userDetails}></UserContext.Provider>;
 }
 
-export { UserProvider, UserContext, UserDispatchContext };
+export { UserProvider, UserContext };
