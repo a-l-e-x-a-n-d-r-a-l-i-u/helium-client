@@ -1,20 +1,12 @@
-import React, { createContext, useState } from "react";
+import { createContext } from "react";
 
-// UserContext: to query the context state
 const UserContext = createContext<UserContextValue>({});
-// UserDispatchContext: to mutate the context state
-// const UserDispatchContext = createContext<UserContextValue>({});
+const UserDispatchContext = createContext({});
 
 interface UserContextValue {
   username?: string;
+  firstName?: string;
+  lastName?: string;
 }
 
-function UserProvider({}) {
-  const [userDetails, setUserDetails] = useState({
-    username: "Jane Smith",
-  });
-
-  return <UserContext.Provider value={userDetails}></UserContext.Provider>;
-}
-
-export { UserProvider, UserContext };
+export { UserContext, UserDispatchContext };
