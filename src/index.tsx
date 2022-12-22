@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/styling/index.css";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // import styled from 'styled-components';
@@ -9,11 +10,15 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
   // strict mode doesn't impact build, it's just to check for unsafe lifecycles and unexpected side effects
   <React.StrictMode>
-    {/* <ThemeProvider theme={theme} > */}
-    {/* Use ThemeProvider for Reset CSS or Global Styles */}
-    {/* A Dark Mode Toggle with React and ThemeProvider */}
-    {/* https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/ */}
-    <App />
+    <BrowserRouter>
+      {/* You can replace BrowserRouter with MemoryRouter for testing */}
+
+      {/* <ThemeProvider theme={theme} > */}
+      {/* Use ThemeProvider for Reset CSS or Global Styles */}
+      {/* A Dark Mode Toggle with React and ThemeProvider */}
+      {/* https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/ */}
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
