@@ -1,8 +1,8 @@
 import React from "react";
 import postlist from "../posts.json";
-import profilePlaceholder from "../images/thispersondoesnotexist.jpeg";
-import postPlaceholder from "../images/post-thumbnail-placeholder.jpg";
-import { Link } from "react-router-dom";
+import profilePlaceholder from "../assets/images/thispersondoesnotexist.jpeg";
+import postPlaceholder from "../assets/images/post-thumbnail-placeholder.jpg";
+import { Link, NavLink } from "react-router-dom";
 
 function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
@@ -14,13 +14,11 @@ const PostList: React.FC = () => {
       {postlist.map((post, i) => {
         return (
           <article>
-            {/* could use next.js for responsive images, if can be bothered learning something new */}
-            {/* should use a compressed version of images for a profile icon as well, otherwise it will take forever to load on a speedtest */}
+            {/* should use a compressed version of images, otherwise it will take forever to load on a speedtest */}
             <div className='wrapper'>
               <div className='card-header'>
                 <img className='profile-thumbnail' src={profilePlaceholder} alt={post.author} />
                 {/* actually the src should be more like {process.env.PUBLIC_URL + image} except you haven't set up process.env yet */}
-                {/* include post.org if it's written by a person or by an org. but also tweak getposts.js to hide if one or the other doesn't exist, we don't need a billion cards with 'Unknown author in Save the Children', just say 'Save the Children' */}
                 <div className='author-date-container'>
                   <span>{post.author}</span>
                   <span>·</span>
@@ -36,8 +34,7 @@ const PostList: React.FC = () => {
                   <h2>{post.title}</h2>
                 </Link>
                 {/* style link text black */}
-                <p className='blurb'>{post.content}</p>
-                {/* figure out how to shorten post.content into max 3lines of text */}
+                <p className='blurb'>{post.content.split(".")[0]}...</p>
               </div>
               <img className='post-thumbnail xs-only' src={postPlaceholder} alt={post.title} />
             </div>
@@ -48,8 +45,9 @@ const PostList: React.FC = () => {
                   {/* Dynamically generate tag links */}
                   <div className='tag'>{capitalizeFirstLetter(post.tag)}</div>
                 </Link>
+                {/* Scoped out the following parts of Medium.com for this project */}
                 {/* <div>Based on your reading history/Selected for you</div> */}
-                <div>Icons for Add / Minus</div>
+                {/* <div>Icons for Add / Minus</div> */}
               </div>
               <div className='thumbnail-width'></div>
             </div>
@@ -62,20 +60,20 @@ const PostList: React.FC = () => {
 
 const FeedNav: React.FC = () => {
   return (
-    // how to programmatically show the 'selected' state ???????? use for loop to loop thru list of tabs ????
-
     <div id='feed-nav'>
-      <a href='recommendations'>
+      <NavLink to='/recommendations'>
         <div className='tab symbol'>+</div>
-      </a>
+      </NavLink>
 
-      <a href='/'>
-        <div className='tab selected'>For you</div>
-      </a>
+      <NavLink to='/'>
+        {({ isActive }) => {
+          return isActive ? <div className='tab selected'>For you</div> : <div className='tab'>For you</div>;
+        }}
+      </NavLink>
 
-      <a href='/?feed=following&source=home'>
+      <NavLink to='/?feed=following&source=home'>
         <div className='tab'>Following</div>
-      </a>
+      </NavLink>
     </div>
   );
 };

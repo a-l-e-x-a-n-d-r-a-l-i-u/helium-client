@@ -1,9 +1,9 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   return (
     <nav className='side-bar'>
-      <div>Sign up button</div>
+      <div>Sign in</div>
       <div>Search bar</div>
       <div>
         <p>Trending</p>

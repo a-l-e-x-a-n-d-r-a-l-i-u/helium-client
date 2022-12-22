@@ -1,6 +1,5 @@
-import React from "react";
-import AppRouter from "./stateless_components/AppRouter";
-import "./styles.scss";
+import AppRouter from "./AppRouter";
+import "./assets/styling/styles.scss";
 
 function App() {
   return (

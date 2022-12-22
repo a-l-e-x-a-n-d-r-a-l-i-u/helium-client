@@ -47,7 +47,7 @@ const getPosts = async () => {
         }
 
         let parseMetadata = ({ lines, metadataIndices }) => {
-          // if we have a metadata indices array with elements in it, we want to sliece the lines array between the two indices with the --- in it
+          // if we have a metadata indices array with elements in it, we want to slice the lines array between the two indices with the --- in it
           if (metadataIndices.length > 0) {
             // but ignoring the first line that's just --- and we want to start at title
             let metadata = lines.slice(metadataIndices[0] + 1, metadataIndices[1])

@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./HomePage";
-import PostPage from "./PostPage";
-import Feed from "./Feed";
-import ErrorPage from "./ErrorPage";
+//import { UserContext } from "../containers/UserContext";
 
-import Layout from "./Layout";
+import Layout from "./layouts/Layout";
+import HomePage from "./pages/HomePage";
+import PostPage from "./pages/PostPage";
+import Feed from "./pages/Feed";
+import ErrorPage from "./pages/ErrorPage";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       {/* When route path and url location match, a match object is created */}
       {/* You can replace BrowserRouter with MemoryRouter for testing */}
+      {/* <UserContext.Provider> */}
       <Layout>
+        {/* Layout applies to every page EXCEPT a landing page, if you decide to make one.
+        So keep Layout.tsx component separate for now */}
         <Routes>
           <Route path='/' element={<HomePage />} />
           {/* Do I need to make sure this patch is exact? In react-router v5 I had to */}
           <Route path='/post/:slug' element={<PostPage />} />
 
           {/* Update these components later */}
-          <Route path='/signin' element={<HomePage />} />
           <Route path='/tag/:tagName' element={<Feed />} />
 
           <Route path='/me' element={<HomePage />} />
@@ -32,6 +35,7 @@ const AppRouter = () => {
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Layout>
+      {/* </UserContext.Provider> */}
     </BrowserRouter>
   );
 };
