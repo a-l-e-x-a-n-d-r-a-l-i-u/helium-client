@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 import placeholderReactLogo from "../assets/images/logo192.png";
@@ -19,6 +18,7 @@ const SideNav = () => {
           {({ isActive }) => {
             return isActive ? <img src={home_active} alt='Home' /> : <img src={home_link} alt='Home' />;
           }}
+          {/* Is there a shorter way to do this? */}
         </NavLink>
         <NavLink to='/me/notifications'>
           <img src={lists_link} alt='Notifications' />

@@ -1,4 +1,3 @@
-import React from "react";
 import AppRouter from "./AppRouter";
 import "./assets/styling/styles.scss";
 

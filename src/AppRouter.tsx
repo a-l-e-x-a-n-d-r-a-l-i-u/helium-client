@@ -23,7 +23,6 @@ const AppRouter = () => {
           <Route path='/post/:slug' element={<PostPage />} />
 
           {/* Update these components later */}
-          <Route path='/signin' element={<HomePage />} />
           <Route path='/tag/:tagName' element={<Feed />} />
 
           <Route path='/me' element={<HomePage />} />

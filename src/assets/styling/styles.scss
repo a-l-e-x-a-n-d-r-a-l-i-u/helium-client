@@ -238,7 +238,6 @@ article {
 div.button {
   padding: 8px 16px;
   margin: 0px 10px;
-  height: 35px; // this is just font size + padding
   @include border-radius(100px);
   &.primary-button {
     border: 1px $primary-background solid;
@@ -250,6 +249,7 @@ div.button {
   }
   &.icon-button {
     width: 35px;
+    height: 35px; // this is just font size + padding
     padding: 0px;
     display: table-cell;
     vertical-align: middle;
@@ -258,6 +258,25 @@ div.button {
   }
 }
 
+div.modal-dialog {
+  box-shadow: $secondary-color 0px 2px 10px;
+  border-radius: 4px;
+  transform-origin: center bottom 0px;
+  animation: popup 300ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards running;
+}
+@keyframes popup {
+  0% {
+    opacity: 0;
+    transform: scale(.1);
+}
+25% {
+  transform: scale(.9);
+}
+100% {
+  opacity: 1;
+  transform: scale(1);
+}
+}
 
 // Now onto bigger viewports!
 
