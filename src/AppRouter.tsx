@@ -19,10 +19,10 @@ const AppRouter = () => {
       <Routes>
         {/* When route path and url location match, a match object is created */}
         <Route path='/' element={<HomePage />} />
-        <Route path='/post/:slug' element={<PostPage />} />
+        <Route path='/post' element={<PostPage />} />
 
         {/* Update these components later */}
-        <Route path='/tag/:tagName' element={<ComingSoon />} />
+        <Route path='/tag/:tagName' element={<Feed />} />
         <Route path='/me' element={<ComingSoon />} />
         <Route path='/me/notifications' element={<ComingSoon />} />
         <Route path='/me/lists' element={<ComingSoon />} />
