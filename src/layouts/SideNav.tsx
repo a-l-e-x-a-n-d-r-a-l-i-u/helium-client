@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import placeholderReactLogo from "../assets/images/logo192.png";
+import logo from "../assets/images/logo.svg";
 import home_link from "../assets/images/home_link.svg";
 import home_active from "../assets/images/home_active.svg";
 import lists_link from "../assets/images/lists_link.svg";
@@ -12,7 +12,7 @@ import placeholderProfile from "../assets/images/placeholder-profile.svg";
 const SideNav = () => {
   return (
     <nav className='side-nav'>
-      <img className='nav-logo' src={placeholderReactLogo} alt='placeholder logo' />
+      <img className='nav-logo' src={logo} alt='Helium logo' />
       <div className='nav-list'>
         <NavLink to='/'>
           {({ isActive }) => {

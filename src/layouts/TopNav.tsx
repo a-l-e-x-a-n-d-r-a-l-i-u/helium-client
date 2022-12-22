@@ -2,7 +2,7 @@ import ButtonDiv from "../components/ButtonDiv";
 // Ok so for some reason this throws a typescript error, check it later
 // But the Button should be made into a reusable component
 
-import placeholderReactLogo from "../assets/images/logo192.png";
+import logo from "../assets/images/logo.svg";
 import notification_link from "../assets/images/notification_link.svg";
 
 const TopNav = () => {
@@ -18,7 +18,7 @@ const TopNav = () => {
 
   return (
     <nav className='top-nav'>
-      <img className='nav-logo' src={placeholderReactLogo} alt='placeholder logo' />
+      <img className='nav-logo' src={logo} alt='Helium logo' />
 
       <div className='nav-list'>
         <div className='button primary-button' onClick={openModal}>
