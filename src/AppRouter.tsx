@@ -16,6 +16,7 @@ const AppRouter = () => {
     <Layout>
       {/* <UserContext.Provider> */}
       {location.state}
+      {/* Ok but I wanna put location.state inside the HomePage component, do I need to pass it down as props or can I work some magic with Context API? */}
       <Routes>
         {/* When route path and url location match, a match object is created */}
         <Route path='/' element={<HomePage />} />

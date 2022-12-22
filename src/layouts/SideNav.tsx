@@ -12,7 +12,9 @@ import placeholderProfile from "../assets/images/placeholder-profile.svg";
 const SideNav = () => {
   return (
     <nav className='side-nav'>
-      <img className='nav-logo' src={logo} alt='Helium logo' />
+      <NavLink to='/'>
+        <img className='nav-logo' src={logo} alt='Helium home page' />
+      </NavLink>
       <div className='nav-list'>
         <NavLink to='/'>
           {({ isActive }) => {
