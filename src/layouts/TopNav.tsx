@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import placeholderReactLogo from "../../images/logo192.png";
-import notification_link from "../../images/notification_link.svg";
+import placeholderReactLogo from "../assets/images/logo192.png";
+import notification_link from "../assets/images/notification_link.svg";
 
 const TopNav = () => {
   return (

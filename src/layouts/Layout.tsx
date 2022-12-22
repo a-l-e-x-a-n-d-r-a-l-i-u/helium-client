@@ -1,8 +1,8 @@
 import React from "react";
 
-import TopNav from "./navigation/TopNav";
-import BottomNav from "./navigation/BottomNav";
-import SideNav from "./navigation/SideNav";
+import TopNav from "./TopNav";
+import BottomNav from "./BottomNav";
+import SideNav from "./SideNav";
 
 interface LayoutProps {
   // problem with JSX.Element is that it only allows for 1 child

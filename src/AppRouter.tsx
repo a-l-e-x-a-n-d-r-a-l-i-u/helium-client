@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //import { UserContext } from "../containers/UserContext";
 
-import Layout from "./Layout";
-import HomePage from "./HomePage";
-import PostPage from "./PostPage";
-import Feed from "./Feed";
-import ErrorPage from "./ErrorPage";
+import Layout from "./layouts/Layout";
+import HomePage from "./pages/HomePage";
+import PostPage from "./pages/PostPage";
+import Feed from "./pages/Feed";
+import ErrorPage from "./pages/ErrorPage";
 
 const AppRouter = () => {
   return (

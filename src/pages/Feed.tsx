@@ -1,7 +1,7 @@
 import React from "react";
 import postlist from "../posts.json";
-import profilePlaceholder from "../images/thispersondoesnotexist.jpeg";
-import postPlaceholder from "../images/post-thumbnail-placeholder.jpg";
+import profilePlaceholder from "../assets/images/thispersondoesnotexist.jpeg";
+import postPlaceholder from "../assets/images/post-thumbnail-placeholder.jpg";
 import { Link, NavLink } from "react-router-dom";
 
 function capitalizeFirstLetter(string: string) {
