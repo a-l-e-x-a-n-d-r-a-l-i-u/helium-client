@@ -21,7 +21,7 @@ const PostList: React.FC = () => {
                 {/* actually the src should be more like {process.env.PUBLIC_URL + image} except you haven't set up process.env yet */}
                 <div className='author-date-container'>
                   <span>{post.author}</span>
-                  <span>·</span>
+                  <span> · </span>
                   <span>{post.date}</span>
                 </div>
               </div>
@@ -30,11 +30,10 @@ const PostList: React.FC = () => {
 
             <div className='card-body'>
               <div className='blurb-container'>
-                <Link to='/post/:slug'>
+                <Link to={`/post/${post.id}`}>
                   <h2>{post.title}</h2>
                 </Link>
-                {/* style link text black */}
-                <p className='blurb'>{post.content.split(".")[0]}...</p>
+                <p className='blurb'>{post.content.split(".")[0]}.</p>
               </div>
               <img className='post-thumbnail xs-only' src={postPlaceholder} alt={post.title} />
             </div>
@@ -45,9 +44,6 @@ const PostList: React.FC = () => {
                   {/* Dynamically generate tag links */}
                   <div className='tag'>{capitalizeFirstLetter(post.tag)}</div>
                 </Link>
-                {/* Scoped out the following parts of Medium.com for this project */}
-                {/* <div>Based on your reading history/Selected for you</div> */}
-                {/* <div>Icons for Add / Minus</div> */}
               </div>
               <div className='thumbnail-width'></div>
             </div>
