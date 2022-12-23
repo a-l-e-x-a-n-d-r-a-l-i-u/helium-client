@@ -1,15 +1,16 @@
 import { useContext } from "react";
-import Feed from "./Feed";
-
-//import { UserContext } from "../containers/UserContext";
+import { UserContext } from "../stateful_containers/UserContext";
+import SecondaryNav from "../components/SecondaryNav";
+import CardList from "../components/CardList";
 
 const HomePage = () => {
-  //  const context = useContext(UserContext);
+  // const context = useContext(UserContext);
   return (
-    <>
+    <div>
       {/* <p>Hello {context}</p> */}
-      <Feed />
-    </>
+      <SecondaryNav />
+      <CardList />
+    </div>
   );
 };
 

@@ -141,7 +141,7 @@ nav {
   }
 }
 
-div#main-content {
+main {
   margin: 3em 0em;
   padding: 32px;
 }
@@ -310,13 +310,13 @@ div.modal-dialog {
     }
   }
  
-  #postlist {
+  #card-list {
     width: 670px;
   }
 }
 
 @media only screen and (min-width: 756px) {  
-  div#main-content {
+  main {
     width: 692px;
     margin: 0 auto;
   }
