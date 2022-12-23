@@ -6,7 +6,7 @@ import Layout from "./layouts/Layout";
 import HomePage from "./pages/HomePage";
 import PostPage from "./pages/PostPage";
 import Feed from "./pages/Feed";
-import ErrorPage from "./pages/ErrorPage";
+import ErrorBoundary from "./pages/ErrorBoundary";
 import ComingSoon from "./pages/ComingSoon";
 
 const AppRouter = () => {
@@ -30,7 +30,7 @@ const AppRouter = () => {
         <Route path='/me/posts/drafts' element={<ComingSoon />} />
         <Route path='/write' element={<ComingSoon />} />
 
-        <Route path='*' element={<ErrorPage />} />
+        <Route path='*' element={<ErrorBoundary />} />
       </Routes>
       {/* </UserContext.Provider> */}
     </Layout>
