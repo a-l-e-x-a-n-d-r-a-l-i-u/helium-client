@@ -1,6 +1,4 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
-
 import home_link from "../assets/images/home_link.svg";
 import home_active from "../assets/images/home_active.svg";
 import lists_link from "../assets/images/lists_link.svg";

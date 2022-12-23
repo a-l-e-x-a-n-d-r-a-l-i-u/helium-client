@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 // UserContext: to query the context state
 const UserContext = createContext<UserContextValue>({});
