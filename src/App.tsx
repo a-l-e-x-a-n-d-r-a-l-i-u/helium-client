@@ -12,6 +12,7 @@ import ErrorBoundary from "./pages/ErrorBoundary";
 import ComingSoon from "./pages/ComingSoon";
 
 // When route path and url location match, a match object is created
+// You can also to sidebars or multiple routes with 'aside' in react-router
 const router = createBrowserRouter([
   {
     path: "/",
