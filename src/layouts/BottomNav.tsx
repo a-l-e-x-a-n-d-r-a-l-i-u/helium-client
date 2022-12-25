@@ -5,6 +5,7 @@ import lists_link from "../assets/images/lists_link.svg";
 import lists_active from "../assets/images/lists_active.svg";
 import search_link from "../assets/images/search_link.svg";
 import search_active from "../assets/images/search_active.svg";
+import placeholderProfile from "../assets/images/placeholder-profile.svg";
 
 const BottomNav = () => {
   return (
@@ -26,7 +27,7 @@ const BottomNav = () => {
           }}
         </NavLink>
         <NavLink to='/me'>
-          <img src={lists_link} alt='Profile' />
+          <img src={placeholderProfile} alt='My profile' />
         </NavLink>
       </div>
     </nav>

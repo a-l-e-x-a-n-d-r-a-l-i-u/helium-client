@@ -5,8 +5,7 @@ import home_link from "../assets/images/home_link.svg";
 import home_active from "../assets/images/home_active.svg";
 import lists_link from "../assets/images/lists_link.svg";
 import lists_active from "../assets/images/lists_active.svg";
-import search_link from "../assets/images/search_link.svg";
-import search_active from "../assets/images/search_active.svg";
+import notification_link from "../assets/images/notification_link.svg";
 import placeholderProfile from "../assets/images/placeholder-profile.svg";
 
 const SideNav = () => {
@@ -23,7 +22,7 @@ const SideNav = () => {
           {/* Is there a shorter way to do this? */}
         </NavLink>
         <NavLink to='/me/notifications'>
-          <img src={lists_link} alt='Notifications' />
+          <img src={notification_link} alt='Notifications' />
         </NavLink>
         <NavLink to='/me/lists'>
           {({ isActive }) => {
@@ -39,7 +38,7 @@ const SideNav = () => {
         </NavLink>
       </div>
 
-      <img id='profile-thumbnail' src={placeholderProfile} alt='No profile picture uploaded' />
+      <img id='profile-thumbnail' src={placeholderProfile} alt='My profile' />
     </nav>
   );
 };
