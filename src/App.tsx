@@ -1,4 +1,8 @@
 import { useContext } from "react";
+
+// If I wanted state in a Higher Order Component
+import { useState } from "react";
+
 import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
 import "./assets/styling/styles.scss";
 //import { UserContext } from "../containers/UserContext";
@@ -58,6 +62,9 @@ Links I copied from Medium.com:
 */
 
 const App = () => {
+  const [user, setUser] = useState<LoginProps | null>(null);
+  const [showProfile, setShowProfile] = useState(false);
+
   return <RouterProvider router={router} />;
 };
 
