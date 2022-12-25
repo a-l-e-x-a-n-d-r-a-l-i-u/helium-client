@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./assets/styling/index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-// import styled from 'styled-components';
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  // strict mode doesn't impact build, it's just to check for unsafe lifecycles and unexpected side effects
   <React.StrictMode>
+    {/* Strict mode doesn't impact build, it's just to check for unsafe lifecycles and unexpected side effects */}
+
     {/* <ThemeProvider theme={theme} > */}
     {/* Use ThemeProvider for Reset CSS or Global Styles */}
     {/* A Dark Mode Toggle with React and ThemeProvider */}

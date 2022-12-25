@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRouteError, useNavigate } from "react-router-dom";
 
-const ErrorPage = () => {
+const ComingSoon = () => {
   const error = useRouteError();
   console.error(error);
 
@@ -10,17 +10,15 @@ const ErrorPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate("/", { state: "Error Page" });
-    }, 5000);
+      navigate("/");
+    }, 2500);
   });
 
   return (
-    <div id='error-page'>
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      {/* <p><i>{error.statusText || error.message}</i></p> */}
+    <div id='coming-soon'>
+      <h1>Coming soon.</h1>
     </div>
   );
 };
 
-export default ErrorPage;
+export default ComingSoon;
