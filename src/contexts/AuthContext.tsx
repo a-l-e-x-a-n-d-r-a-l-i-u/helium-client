@@ -12,16 +12,16 @@ type authContextType = {
   password?: string;
 };
 
-// AuthContext default values
-
 // AuthContext
-export const AuthContext = createContext<authContextType>({
+const authContextDefaultValues: authContextType = {
   isLoggedIn: false,
   login: () => {},
   logout: () => {},
   username: undefined,
   password: undefined,
-});
+};
+
+export const AuthContext = createContext<authContextType>(authContextDefaultValues);
 
 // AuthProvider function
 export const AuthProvider: React.FC = ({ children }) => {
