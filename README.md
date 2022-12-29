@@ -1,43 +1,45 @@
-# Getting Started with Create React App
+# Welcome to this repository, Helium!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`Helium` is a lightweight clone of the popular blogging platform, Medium.com.
 
-## Available Scripts
+## Why did I re-do Medium.com?
 
-In the project directory, you can run:
+In my work as a UXer, I was curious to learn more about not only how products appear to the end-user, but how they are built. This year, 2022, I have been focused on learning frontend concepts.
 
-### `yarn start`
+As part of my [DPC Digital Academy](https://innovationnetwork.vic.gov.au/digital-academy) Scholarship with [Code Like A Girl](codelikeagirl.com)'s [Foundations of Web Dev](https://learnto.codelikeagirl.com/foundations-of-web-dev) Program, I took this opportunity to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Build sassy components
+- Improve performance
+- Practise frontend routing
+- Learn global state management and authentication
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The tools I used are:
 
-### `yarn test`
+- React
+- Node
+- Typescript
+- SASS
+- Markdown
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## `But where do I get the content if I don't have a server?`
 
-### `yarn build`
+Previously, I toyed with the idea of using a headless CMS like `Strapi.io` to follow a JAMstack architecture. I realised it wasn't necessary for a website like mine since CMSes are expensive, they save assets on their own servers and, for a simple site like here, CMSes do not provide the best performance.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`Therefore, I decided to use a Markdown file system that I store in Github and call dynamically.`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Importing posts on the main page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Using an asynchronous function in JavaScript, I import the Markdown files from the `content` folder project into a JSON file, `posts.json`. Later I return them in the form of a promise as an array of JSON objects.
 
-### `yarn eject`
+## `Commands`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `npm run dev`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Concurrently runs the "server" and the client
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `npm start`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Serves the client only assuming the `posts.json` file is up to date
 
 ## Learn More
 
