@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { UserContext } from "../stateful_containers/UserContext";
 import SecondaryNav from "../components/SecondaryNav";
 import CardList from "../components/CardList";
+import ProfilePage from "./ProfilePage";
+import LoginModal from "./LoginModal";
 
 const HomePage = () => {
-  // const context = useContext(UserContext);
   return (
     <div>
       {/* <p>Hello {context}</p> */}
