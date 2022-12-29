@@ -1,8 +1,10 @@
-import { useContext } from "react";
-import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
+// State mgmt
+import { useContext, useState } from "react";
+import { AuthContext, AuthProvider } from "./contexts/AuthContext";
+// Routing
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// Styling
 import "./assets/styling/styles.scss";
-//import { UserContext } from "../containers/UserContext";
-
 // Root layout
 import Layout from "./layouts/Layout";
 // Page imports
@@ -10,6 +12,8 @@ import HomePage from "./pages/HomePage";
 import PostPage from "./pages/PostPage";
 import ErrorBoundary from "./pages/ErrorBoundary";
 import ComingSoon from "./pages/ComingSoon";
+import LoginModal from "./pages/LoginModal";
+import ProfilePage from "./pages/ProfilePage";
 
 // When route path and url location match, a match object is created
 // You can also to sidebars or multiple routes with 'aside' in react-router
@@ -32,13 +36,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/me",
-        element: <ComingSoon />,
+        element: <ProfilePage />,
       },
       {
         path: "*",
         element: <ErrorBoundary />,
       },
     ],
+  },
+  {
+    path: "/signin",
+    element: <LoginModal />,
   },
 ]);
 
@@ -52,7 +60,11 @@ Links I copied from Medium.com:
 */
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider value={value}>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 };
 
 export default App;
