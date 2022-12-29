@@ -10,8 +10,6 @@ import HomePage from "./pages/HomePage";
 import PostPage from "./pages/PostPage";
 import ErrorBoundary from "./pages/ErrorBoundary";
 import ComingSoon from "./pages/ComingSoon";
-import LoginModal from "./pages/LoginModal";
-import ProfilePage from "./pages/ProfilePage";
 
 // When route path and url location match, a match object is created
 // You can also to sidebars or multiple routes with 'aside' in react-router
@@ -34,17 +32,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/me",
-        element: <ProfilePage />,
+        element: <ComingSoon />,
       },
       {
         path: "*",
         element: <ErrorBoundary />,
       },
     ],
-  },
-  {
-    path: "/signin",
-    element: <LoginModal />,
   },
 ]);
 

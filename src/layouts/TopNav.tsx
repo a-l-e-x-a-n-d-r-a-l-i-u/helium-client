@@ -14,6 +14,10 @@ const TopNav = () => {
     // autofocus to the modal's title
   };
 
+  const signIn = () => {
+    //set state
+  };
+
   return (
     <nav className='top-nav'>
       <NavLink to='/'>
@@ -21,9 +25,9 @@ const TopNav = () => {
       </NavLink>
 
       <div className='nav-list'>
-        <NavLink to='/signin'>
-          <div className='button primary-button'>Sign In</div>
-        </NavLink>
+        <div className='button primary-button' onClick={openModal}>
+          Sign In
+        </div>
         <div className='button secondary-button icon-button'>
           <img src={notification_link} alt='Notifications' />
         </div>
