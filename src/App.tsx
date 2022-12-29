@@ -1,12 +1,10 @@
-import { useContext } from "react";
-
-// If I wanted state in a Higher Order Component
-import { useState } from "react";
-
-import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
+// State mgmt
+import { useContext, useState } from "react";
+import { AuthContext, AuthProvider } from "./contexts/AuthContext";
+// Routing
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// Styling
 import "./assets/styling/styles.scss";
-//import { UserContext } from "../containers/UserContext";
-
 // Root layout
 import Layout from "./layouts/Layout";
 // Page imports
@@ -62,10 +60,11 @@ Links I copied from Medium.com:
 */
 
 const App = () => {
-  const [user, setUser] = useState<LoginProps | null>(null);
-  const [showProfile, setShowProfile] = useState(false);
-
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider value={value}>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 };
 
 export default App;
