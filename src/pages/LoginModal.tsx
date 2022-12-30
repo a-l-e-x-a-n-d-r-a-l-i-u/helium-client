@@ -1,6 +1,6 @@
 // State
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
+// import { useContext } from "react";
+// import { AuthContext } from "../contexts/AuthContext";
 
 // import from the Modal.tsx component later
 const LoginModal = () => {
