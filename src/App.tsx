@@ -1,6 +1,6 @@
 // State mgmt
-import { useContext, useState } from "react";
-import { AuthProvider } from "./contexts/AuthContext";
+// import { useContext, useState } from "react";
+// import { AuthContext, AuthProvider } from "./contexts/AuthContext";
 // Routing
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // Styling
@@ -61,9 +61,9 @@ Links I copied from Medium.com:
 
 const App = () => {
   return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <RouterProvider router={router} />
+    // <AuthProvider value={value}>
+    // </AuthProvider>
   );
 };
 
