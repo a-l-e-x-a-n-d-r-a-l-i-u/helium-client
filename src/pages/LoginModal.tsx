@@ -10,6 +10,8 @@ interface LoginProps {
 const LoginModal = () => {
   const [user, setUser] = useState<LoginProps | null>(null);
   const [showProfile, setShowProfile] = useState(false);
+
+  const showUsername = showProfile && user;
   return (
     <div>
       Log in here
@@ -18,8 +20,8 @@ const LoginModal = () => {
         id='username'
         type='text'
         placeholder='Enter username'
-        onChange={(e) => {
-          setUser({ username: e.target.value });
+        onChange={(usernameChangeEvent) => {
+          setUser({ username: usernameChangeEvent.target.value });
         }}
       />
       <label htmlFor='password'>Password</label>
@@ -27,17 +29,18 @@ const LoginModal = () => {
         id='password'
         type='text'
         placeholder='Enter password'
-        onChange={(e) => {
-          setUser({ password: e.target.value });
+        onChange={(passwordChangeEvent) => {
+          setUser({ password: passwordChangeEvent.target.value });
         }}
       />
       <button
         onClick={() => {
           setShowProfile(true);
-        }}>
+        }}
+      >
         Sign In
       </button>
-      {showProfile && user && <h1>{user.username}</h1>}
+      {showUsername && <h1>{user.username}</h1>}
     </div>
   );
 };
