@@ -1,17 +1,5 @@
 import { Link } from "react-router-dom";
-
-interface CardProps {
-  key: number;
-  author: string;
-  date: string;
-  title: string;
-  titleLink: string;
-  blurbContent: string;
-  tag: string;
-  tagLink: string;
-  profileImgSrc: string;
-  postImgSrc: string;
-}
+import { CardProps } from "../interfaces";
 
 const Card = (props: CardProps) => {
   return (
