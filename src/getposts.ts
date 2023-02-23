@@ -1,11 +1,8 @@
 //why does postlist.push read files in alphabetical order, but in posts.json, order is random af
 
 //file system library
-const fs = require("fs")
-const path = require("path")
-
-const dirPath = path.join(__dirname, "../src/content")
-let postlist = []
+import fs from "fs/promises";
+import path from "path";
 
 interface Post {
   id: number;
@@ -23,6 +20,9 @@ interface MetadataObject {
   date?: string;
   tag?: string
 }
+
+const dirPath = path.join(__dirname, "../src/content")
+let postlist: Post[] = []
 
 const getPosts = async () => {
   await fs.readdir(dirPath, (err, files) => {
@@ -95,7 +95,7 @@ const getPosts = async () => {
         if (i === files.length - 1) {
           // when forEach is finished you can save it all in a json file so that it can be dynamically inserted into landing page on client side
           let data = JSON.stringify(postlist)
-          fs.writeFileSync("src/posts.json", data)
+          fs.writeFile("src/posts.json", data)
         }
       })
     })
