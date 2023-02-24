@@ -7,22 +7,22 @@ const path = require("path")
 const dirPath = path.join(__dirname, "../src/content")
 let postlist = []
 
-interface Post {
-  id: number;
-  title: string;
-  author: string;
-  date?: string;
-  tag?: string;
-  content?: string[]
-}
+// interface Post {
+//   id: number;
+//   title: string;
+//   author: string;
+//   date?: string;
+//   tag?: string;
+//   content?: string[]
+// }
 
-interface MetadataObject {
-  id: number;
-  title: string;
-  author: string;
-  date?: string;
-  tag?: string
-}
+// interface MetadataObject {
+//   id: number;
+//   title: string;
+//   author: string;
+//   date?: string;
+//   tag?: string
+// }
 
 const getPosts = async () => {
   await fs.readdir(dirPath, (err, files) => {
@@ -31,18 +31,17 @@ const getPosts = async () => {
     }
 
     files.forEach((file, i) => {
-      let obj<MetadataObject> = {}
-      let post<Post>
+      let obj = {}
+      let post
       fs.readFile(`${dirPath}/${file}`, "utf8", (err, contents) => {
         console.log('There are', files.length, 'files in the content folder')
-        let getMetadataIndices = (accumulator: number[], element, i) => {
+        let getMetadataIndices = (accumulator, element, i) => {
           // We want to find --- and test to see if it's there or not. So we pass the element of the array into test method
           if (/^---/.test(element)) {
             // and if --- is there we record the index in the array
             accumulator.push(i)
           }
-          // use console log to check it's all good - maybe play with Cypress for testing in the future
-          // console.log('accumulator: ', accumulator)
+          console.log('accumulator: ', accumulator)
           return accumulator
         }
 
@@ -51,7 +50,7 @@ const getPosts = async () => {
           if (metadataIndices.length > 0) {
             // but ignoring the first line that's just --- and we want to start at title
             let metadata = lines.slice(metadataIndices[0] + 1, metadataIndices[1])
-            // console.log("metadata: " + metadata)
+            console.log("metadata: " + metadata)
             metadata.forEach(line => {
               obj[line.split(": ")[0]] = line.split(": ")[1]
             })
@@ -75,7 +74,7 @@ const getPosts = async () => {
         const lines = contents.split("\n")
         const metadataIndices = lines.reduce(getMetadataIndices, [])
         // testing with console log
-        // console.log("metadataIndices: " + metadataIndices)
+        console.log("metadataIndices: " + metadataIndices)
         const metadata = parseMetadata({ lines, metadataIndices })
         const content = parseContent({ lines, metadataIndices })
 
