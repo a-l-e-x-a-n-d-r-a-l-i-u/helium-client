@@ -25,7 +25,7 @@ const dirPath = path.join(__dirname, "../src/content")
 let postlist: Post[] = []
 
 const getPosts = async () => {
-  await fs.readdir(dirPath, (err, files) => {
+  await fs.readdir(dirPath, (err: string, files: string[]) => {
     if (err) {
       return console.log("Failed to list contents of directory: " + err)
     }
