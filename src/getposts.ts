@@ -13,68 +13,59 @@ interface Post {
   content?: string[]
 }
 
-interface MetadataObject {
-  id: number;
-  title: string;
-  author: string;
-  date?: string;
-  tag?: string
+// Defining the functions
+
+function parseMetadata({ lines: string[], metadataIndices: number[] }) {
+  // if we have a metadata indices array with elements in it, we want to slice the lines array between the two indices with the --- in it
+  if (metadataIndices.length > 0) {
+    // but ignoring the first line that's just --- and we want to start at title
+    let metadata = lines.slice(metadataIndices[0] + 1, metadataIndices[1])
+    // console.log("metadata: " + metadata)
+    metadata.forEach(line => {
+      metadataObject[line.split(": ")[0]] = line.split(": ")[1]
+    })
+    console.log('metadata object: ', metadataObject)
+    return metadataObject
+  }
+  // because metadataIndices.length is 0 for the blank markdown files, need to return empty object
+  return {}
 }
+
+function parseContent({ lines: string[], metadataIndices: number[] }) {
+  if (metadataIndices.length > 0) {
+    //everything after the second --- lime
+    lines = lines.slice(metadataIndices[1] + 1, lines.length)
+  }
+  return lines.join("\n")
+}
+
+// Getting posts
 
 const dirPath = path.join(__dirname, "../src/content")
 let postlist: Post[] = []
 
 const getPosts = async () => {
-  await fs.readdir(dirPath, (err: string, files: string[]) => {
+  await fs.readdir(dirPath, { encoding: "utf8", withFileTypes: false }, (err: Error, files: string[]) => {
     if (err) {
-      return console.log("Failed to list contents of directory: " + err)
+      return console.log("Failed to list contents of directory:", err)
     }
 
     files.forEach((file, i) => {
-      let obj<MetadataObject> = {}
       let post<Post>
-      fs.readFile(`${dirPath}/${file}`, "utf8", (err, contents) => {
+      fs.readFile(`${dirPath}/${file}`, "utf8", (err: Error, contents: string) => {
         console.log('There are', files.length, 'files in the content folder')
-        let getMetadataIndices = (accumulator: number[], element, i) => {
+        let getMetadataIndices = (accumulator: number[], element: string, i: number) => {
           // We want to find --- and test to see if it's there or not. So we pass the element of the array into test method
           if (/^---/.test(element)) {
             // and if --- is there we record the index in the array
             accumulator.push(i)
           }
-          // use console log to check it's all good - maybe play with Cypress for testing in the future
           // console.log('accumulator: ', accumulator)
           return accumulator
         }
 
-        let parseMetadata = ({ lines, metadataIndices }) => {
-          // if we have a metadata indices array with elements in it, we want to slice the lines array between the two indices with the --- in it
-          if (metadataIndices.length > 0) {
-            // but ignoring the first line that's just --- and we want to start at title
-            let metadata = lines.slice(metadataIndices[0] + 1, metadataIndices[1])
-            // console.log("metadata: " + metadata)
-            metadata.forEach(line => {
-              obj[line.split(": ")[0]] = line.split(": ")[1]
-            })
-            console.log('metadata object: ', obj)
-            return obj
-          }
-          // because metadataIndices.length is 0 for the blank markdown files, need to return empty object
-          return {}
-          //rule of thumb: in a function, always remember to have a return function. if you use 'if' have a backup return in case the if condition isn't met
-        }
-
-        let parseContent = ({ lines, metadataIndices }) => {
-          if (metadataIndices.length > 0) {
-            //everything after the second --- lime
-            lines = lines.slice(metadataIndices[1] + 1, lines.length)
-          }
-          return lines.join("\n")
-        }
-
-        // contents is basically giant strings, so split these strings by line breaks into an array
-        const lines = contents.split("\n")
-        const metadataIndices = lines.reduce(getMetadataIndices, [])
-        // testing with console log
+        let lines = contents.split("\n")
+        let metadataIndices = lines.reduce(getMetadataIndices, [])
         // console.log("metadataIndices: " + metadataIndices)
         const metadata = parseMetadata({ lines, metadataIndices })
         const content = parseContent({ lines, metadataIndices })
