@@ -2,7 +2,7 @@
 title: New ways maps and AI keep communities safe and informed
 author: Rebecca Moore
 date: September 29, 2021
-tag: ["artificial intelligence"]
+tag: "artificial intelligence"
 ---
 
 With Google’s AI technology and mapping information, people and organizations all over the world can access helpful, reliable information needed to make progress toward tackling global challenges like climate change. At Search On today, we’re sharing new mapping features that help keep communities safer, more sustainable, and discoverable — no matter where they are in the world.

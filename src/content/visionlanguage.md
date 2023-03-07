@@ -2,7 +2,7 @@
 title: A vision-language approach for foundational UI understanding
 author: Yang Li and Gang Li
 date: November 20, 2018
-tag: ["language"]
+tag: "tech"
 ---
 
 The computational understanding of user interfaces (UI) is a key step towards achieving intelligent UI behaviors. Previously, we investigated various UI modeling tasks, including widget captioning, screen summarization, and command grounding, that address diverse interaction scenarios such as automation and accessibility. We also demonstrated how machine learning can help user experience practitioners improve UI quality by diagnosing tappability confusion and providing insights for improving UI design. These works along with those developed by others in the field have showcased how deep neural networks can potentially transform end user experiences and the interaction design practice.

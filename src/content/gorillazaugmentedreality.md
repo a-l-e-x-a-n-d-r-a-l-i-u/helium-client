@@ -2,7 +2,7 @@
 title: Gorillaz turn the world into a stage with augmented reality
 author: Stevan Silva
 date:
-tag: ["music"]
+tag: "music"
 ---
 
 Whether it’s trying on virtual lipstick or trying out products in the space around you, augmented reality (AR) continues to blend the physical and digital worlds. It’s transforming the way we shop, learn, navigate and experience the world together. And for artists and creators, AR can be used as an immersive way to bring fans and supporters closer to their content in new ways.

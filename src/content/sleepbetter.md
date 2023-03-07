@@ -2,7 +2,7 @@
 title: 6 products to help you sleep better
 author: Stephanie Young and Tegan Sporer
 date:
-tag: ["health"]
+tag: "health"
 ---
 
 If you sleep with your phone on your nightstand, it can be tempting to scroll through emails and social media, or check every notification instead of getting some rest.
