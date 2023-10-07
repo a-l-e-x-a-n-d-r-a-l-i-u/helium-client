@@ -1,6 +1,6 @@
 # Welcome to this repository, Helium!
 
-`Helium` is a lightweight clone of the popular blogging platform, Medium.com.
+Helium is a lightweight copy of the blogging platform, Medium.com.
 
 ## Why did I re-do Medium.com?
 
@@ -21,28 +21,26 @@ The tools I used are:
 - SASS
 - Markdown
 
-## `But where do I get the content if I don't have a server?`
+## But where do I get the content if I don't have a server?
 
-Previously, I toyed with the idea of using a headless CMS like `Strapi.io` to follow a JAMstack architecture. I realised it wasn't necessary for a website like mine since CMSes are expensive, they save assets on their own servers and, for a simple site like here, CMSes do not provide the best performance.
+Previously, I toyed with using a headless CMS like `Strapi.io` to follow JAMstack architecture. I realised it wasn't necessary for a website like so since CMSes are expensive, they save assets on their own servers and, for a simple site like here, CMSes do not provide the best performance.
 
-`Therefore, I decided to use a Markdown file system that I store in Github and call dynamically.`
+I decided to use a Markdown file system that I store in Github and call dynamically.
 
 ### Importing posts on the main page
 
 Using an asynchronous function in JavaScript, I import the Markdown files from the `content` folder project into a JSON file, `posts.json`. Later I return them in the form of a promise as an array of JSON objects.
 
-## `Commands`
+## Commands
 
 ### `npm run dev`
 
-Concurrently runs the "server" and the client
+Concurrently runs the client and server (`getposts.ts`, to be replaced with a Node backend as the course progresses)
 
 ### `npm start`
 
-Serves the client only assuming the `posts.json` file is up to date
+Serves the client only, assuming that the `posts.json` file is up to date
 
-## Learn More
+## Deployment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Master branch is automatically deployed to [Netlify](https://dynamic-gumption-45f7d8.netlify.app).
