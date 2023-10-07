@@ -57,27 +57,32 @@ const getPosts = async (dirPath: string) => {
 
     // Turn file content into a lines array
     const fileContentPromise: Promise<string> = readFile(`${dirPath}/${file}`);
+    let lines: string[];
+    let metadataIndices: number[];
+
     const linesPromise: Promise<string[] | number[]> = fileContentPromise.then((fileContent: string) => {
-      const lines: string[] = fileContent.split("\n");
-      const metadataIndices: number[] = lines
+      lines = fileContent.split("\n");
+      metadataIndices = lines
         .map((string, index) => (string === "---" ? index : -1)) // map to index or -1
         .filter((index) => index !== -1); // filter out -1
       return metadataIndices;
     });
 
-    const metadata = parseMetadata(lines, metadataIndices);
-    const content = parseContent(lines, metadataIndices);
+    linesPromise.then(() => {
+      const metadata = parseMetadata(lines, metadataIndices);
+      const content = parseContent(lines, metadataIndices);
 
-    // then add the post to the postlist array
-    post = {
-      id: i + 1,
-      title: metadata.title ? metadata.title : "",
-      author: metadata.author ? metadata.author : "",
-      date: metadata.date ? metadata.date : "",
-      tag: metadata.tag ? metadata.tag : "",
-      content: content ? content : "",
-    };
-    postlist.push(post);
+      // then add the post to the postlist array
+      post = {
+        id: i + 1,
+        title: metadata.title ? metadata.title : "",
+        author: metadata.author ? metadata.author : "",
+        date: metadata.date ? metadata.date : "",
+        tag: metadata.tag ? metadata.tag : "",
+        content: content ? content : "",
+      };
+      postlist.push(post);
+    });
 
     // When the file index is same as number of files in folder, that means the forEach looping has finished
     if (i === files.length - 1) {
