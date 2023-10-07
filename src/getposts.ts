@@ -57,7 +57,7 @@ const getPosts = async (dirPath: string) => {
 
     // Turn file content into a lines array
     const fileContentPromise: Promise<string> = readFile(`${dirPath}/${file}`);
-    const linesPromise: Promise<string[]> = fileContentPromise.then((fileContent: string) => {
+    const linesPromise: Promise<string[] | number[]> = fileContentPromise.then((fileContent: string) => {
       const lines: string[] = fileContent.split("\n");
       const metadataIndices: number[] = lines
         .map((string, index) => (string === "---" ? index : -1)) // map to index or -1
