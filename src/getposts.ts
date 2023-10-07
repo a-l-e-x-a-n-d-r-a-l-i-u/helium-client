@@ -17,11 +17,14 @@ function parseMetadata(lines: string[], indices: number[]) {
     // if we have a metadataIndices array, we want to slice lines array for lines between the two indices with --- in it
     let metadata: string[] = lines.slice(indices[0] + 1, indices[1]);
 
-    const metadataObject: { [key: string]: string } = metadata.reduce((acc: { [key: string]: string }, curr: string) => {
-      const [key, value] = curr.split(": ") as [string, string];
-      acc[key] = value;
-      return acc;
-    }, {});
+    const metadataObject: { [key: string]: string } = metadata.reduce(
+      (acc: { [key: string]: string }, curr: string) => {
+        const [key, value] = curr.split(": ") as [string, string];
+        acc[key] = value;
+        return acc;
+      },
+      {}
+    );
     return metadataObject;
   }
   return {};
@@ -44,8 +47,8 @@ const getPosts = async (dirPath: string) => {
   console.log("There are", files.length, "files in the content folder");
 
   files.forEach((file, i) => {
-    let post<Post>;
-    
+    let post: Post;
+
     //Read file content
     const readFile = async (filename: string): Promise<string> => {
       const fileContent: string = await fs.readFile(filename, "utf-8");
@@ -57,9 +60,9 @@ const getPosts = async (dirPath: string) => {
     const linesPromise: Promise<string[]> = fileContentPromise.then((fileContent: string) => {
       const lines: string[] = fileContent.split("\n");
       const metadataIndices: number[] = lines
-      .map((string, index) => (string === "---" ? index : -1)) // map to index or -1
-      .filter((index) => index !== -1); // filter out -1
-      return metadataIndices
+        .map((string, index) => (string === "---" ? index : -1)) // map to index or -1
+        .filter((index) => index !== -1); // filter out -1
+      return metadataIndices;
     });
 
     const metadata = parseMetadata(lines, metadataIndices);
