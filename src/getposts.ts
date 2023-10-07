@@ -17,7 +17,7 @@ function parseMetadata(lines: string[], indices: number[]) {
     // if we have a metadataIndices array, we want to slice lines array for lines between the two indices with --- in it
     let metadata: string[] = lines.slice(indices[0] + 1, indices[1]);
 
-    const metadataObject: { [key: string]: string } = metadata.reduce((acc: string, curr: string) => {
+    const metadataObject: { [key: string]: string } = metadata.reduce((acc: { [key: string]: string }, curr: string) => {
       const [key, value] = curr.split(": ") as [string, string];
       acc[key] = value;
       return acc;
