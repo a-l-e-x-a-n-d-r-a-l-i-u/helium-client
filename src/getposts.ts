@@ -19,7 +19,7 @@ function parseMetadata(lines: string[], indices: number[]) {
 
     const metadataObject: { [key: string]: string } = metadata.reduce(
       (acc: { [key: string]: string }, curr: string) => {
-        const [key, value] = curr.split(": ") as [string, string];
+        const [key, value] = curr.split(": ");
         acc[key] = value;
         return acc;
       },
@@ -42,60 +42,58 @@ function parseContent(lines: string[], indices: number[]) {
 let postlist: Post[] = [];
 
 // Getting posts
-const getPosts = async (dirPath: string) => {
-  const files = await fs.readdir(dirPath, { encoding: "utf8", withFileTypes: false });
-  console.log("There are", files.length, "files in the content folder");
-
-  files.forEach((file, i) => {
-    let post: Post;
-
-    //Read file content
-    const readFile = async (filename: string): Promise<string> => {
-      const fileContent: string = await fs.readFile(filename, "utf-8");
-      return fileContent;
-    };
-
-    // Turn file content into a lines array
-    const fileContentPromise: Promise<string> = readFile(`${dirPath}/${file}`);
-    let lines: string[];
-    let metadataIndices: number[];
-
-    const linesPromise: Promise<string[] | number[]> = fileContentPromise.then((fileContent: string) => {
-      lines = fileContent.split("\n");
-      metadataIndices = lines
-        .map((string, index) => (string === "---" ? index : -1)) // map to index or -1
-        .filter((index) => index !== -1); // filter out -1
-      return metadataIndices;
+async function getPosts(dirPath: string) {
+  try {
+    const files = await fs.readdir(dirPath, {
+      encoding: "utf8",
+      withFileTypes: false,
     });
 
-    linesPromise.then(() => {
-      const metadata = parseMetadata(lines, metadataIndices);
-      const content = parseContent(lines, metadataIndices);
+    for (let i = 0; i < files.length; i++) {
+      // Iterate with a regular for-loop
+      const file = files[i];
+      let post: Post;
 
-      // then add the post to the postlist array
+      // Turn file content into a lines array
+      const readFile = async (
+        filename: string
+      ): Promise<{ lines: string[]; metadataIndices: number[] }> => {
+        const fileContent = await fs.readFile(
+          `${dirPath}/${filename}`,
+          "utf-8"
+        ); // Await the async operation
+        const lines = fileContent.split("\n");
+        const metadataIndices = lines
+          .map((line, index) => (line === "---" ? index : -1)) // map to index or -1
+          .filter((index) => index !== -1); // filter out -1
+        return { lines, metadataIndices };
+      };
+
+      const { lines, metadataIndices } = await readFile(file); // Await the readFile function
+      const metadata = parseMetadata(lines, metadataIndices); // Assuming parseMetadata is defined
+      const content = parseContent(lines, metadataIndices); // Assuming parseContent is defined
+
+      // Create a post object
       post = {
         id: i + 1,
-        title: metadata.title ? metadata.title : "",
-        author: metadata.author ? metadata.author : "",
-        date: metadata.date ? metadata.date : "",
-        tag: metadata.tag ? metadata.tag : "",
-        content: content ? content : "",
+        title: metadata.title || "",
+        author: metadata.author || "",
+        date: metadata.date || "",
+        tag: metadata.tag || "",
+        content: content || "",
       };
-      postlist.push(post);
-    });
 
-    // When the file index is same as number of files in folder, that means the forEach looping has finished
-    if (i === files.length - 1) {
-      // when forEach is finished you can save it all in a json file so that it can be dynamically inserted into landing page on client side
-      let data = JSON.stringify(postlist);
-      fs.writeFile("src/posts.json", data);
+      postlist.push(post); // then add the post object to the postlist array
     }
-  });
-  setTimeout(() => {
-    console.log(postlist);
-  }, 300);
-  // need to set timeout otherwise the array is empty if you console log it because it's a promise/async/await, so the rest of the code hasn't run yet
-  // 300ms aka 0.3sec should be enough time
-};
+
+    // Write the postlist to a JSON file
+    const data = JSON.stringify(postlist, null, 2); // Pretty print the JSON
+    await fs.writeFile("src/posts.json", data, "utf-8"); // Await the write operation
+
+    console.log(postlist); // Log the postlist after async operations
+  } catch (error) {
+    console.error("Error reading files:", error);
+  }
+}
 
 getPosts(path.join(__dirname, "../src/content"));
