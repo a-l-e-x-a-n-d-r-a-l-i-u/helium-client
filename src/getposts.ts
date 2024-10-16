@@ -42,7 +42,7 @@ let postlist: Post[] = [];
 async function getPosts(dirPath: string) {
   const files = await fs.readdir(dirPath, { encoding: "utf8", withFileTypes: false });
   
-  files.forEach((file, i) => {
+  for (const [i, file] of files.entries()) {
     let post: Post;
     
     // Turn file content into a lines array
