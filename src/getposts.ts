@@ -41,8 +41,7 @@ let postlist: Post[] = [];
 // Getting posts
 async function getPosts(dirPath: string) {
   const files = await fs.readdir(dirPath, { encoding: "utf8", withFileTypes: false });
-  const postlist = [];
-
+  
   files.forEach((file, i) => {
     let post: Post;
     
